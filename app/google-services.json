@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "453652264157",
+    "firebase_url": "https://shopin-f7853.firebaseio.com",
+    "project_id": "shopin-f7853",
+    "storage_bucket": "shopin-f7853.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:453652264157:android:6ca5900b3a14fb3e291734",
+        "android_client_info": {
+          "package_name": "mal.art.shopin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "453652264157-ve1miqcudb85mj3h7p8h736vs8uh7qqn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mal.art.shopin",
+            "certificate_hash": "4b3b0c7b650a96ee2ed93f6f99e231f735d87345"
+          }
+        },
+        {
+          "client_id": "453652264157-ghro7k3b85djcaeqs88a4vd3oi64oc1n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKS8aYvY4tGWN-BBfnJeFiPSEdvnXlsLc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "453652264157-ghro7k3b85djcaeqs88a4vd3oi64oc1n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
