@@ -13,7 +13,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import mal.art.shopin.Model.Product;
 
-@Database(entities = Product.class, exportSchema = false, version = 1)
+@Database(entities = Product.class, exportSchema = false, version = 2)
 public abstract class ProductRoomDatabase extends RoomDatabase {
 
   private static final String DB_NAME = "shopinDb";

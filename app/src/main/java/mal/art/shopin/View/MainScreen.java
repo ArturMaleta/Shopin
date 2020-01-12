@@ -8,9 +8,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.room.Room;
-import java.io.File;
-import mal.art.shopin.Database.ProductRoomDatabase;
 import mal.art.shopin.Model.Product;
 import mal.art.shopin.R;
 import mal.art.shopin.ViewModel.ProductViewModel;
@@ -72,9 +69,10 @@ public class MainScreen extends AppCompatActivity {
     super.onActivityResult(requestCode, resultCode, data);
 
     if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-      Product product = (Product) getIntent().getSerializableExtra(AddNewProduct.SAVE_REPLY);
+      Product product = data.getParcelableExtra(AddNewProduct.SAVE_PRODUCT_REPLY);
       mProductViewModel.insert(product);
-      Log.d("PRODUKT ZAPISANY", product.productName + " " + product.category);
+
+      Log.d("PRODUKT ZAPISANY", product.getProductName() + " " + product.getProductCategory());
     }
   }
 

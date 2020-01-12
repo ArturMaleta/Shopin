@@ -43,18 +43,18 @@ public class ProductsList extends AppCompatActivity {
     mProductViewModel = ViewModelProviders.of(this).get(ProductViewModel.class);
     mProductViewModel.getAllProducts().observe(this, products -> {
       adapter.setProducts(products);
-      Log.d("1 PRODUKT", products.get(0).getProductName());
-      Log.d("1 PRODUKT KATEGORIA", products.get(0).getCategory());
-      Log.d("2 PRODUKT", products.get(1).getProductName());
-      Log.d("2 PRODUKT KATEGORIA", products.get(1).getCategory());
-      Log.d("3 PRODUKT", products.get(2).getProductName());
-      Log.d("3 PRODUKT KATEGORIA", products.get(2).getCategory());
-      Log.d("4 PRODUKT", products.get(3).getProductName());
-      Log.d("4 PRODUKT KATEGORIA", products.get(3).getCategory());
-      Log.d("5 PRODUKT", products.get(4).getProductName());
-      Log.d("5 PRODUKT KATEGORIA", products.get(4).getCategory());
-      Log.d("6 PRODUKT", products.get(5).getProductName());
-      Log.d("6 PRODUKT KATEGORIA", products.get(5).getCategory());
+//      Log.d("1 PRODUKT", products.get(0).getProductName());
+//      Log.d("1 PRODUKT KATEGORIA", products.get(0).getProductCategory());
+//      Log.d("2 PRODUKT", products.get(1).getProductName());
+//      Log.d("2 PRODUKT KATEGORIA", products.get(1).getProductCategory());
+//      Log.d("3 PRODUKT", products.get(2).getProductName());
+//      Log.d("3 PRODUKT KATEGORIA", products.get(2).getProductCategory());
+//      Log.d("4 PRODUKT", products.get(3).getProductName());
+//      Log.d("4 PRODUKT KATEGORIA", products.get(3).getProductCategory());
+//      Log.d("5 PRODUKT", products.get(4).getProductName());
+//      Log.d("5 PRODUKT KATEGORIA", products.get(4).getProductCategory());
+//      Log.d("6 PRODUKT", products.get(5).getProductName());
+//      Log.d("6 PRODUKT KATEGORIA", products.get(5).getProductCategory());
     });
   }
 

@@ -1,41 +1,47 @@
 package mal.art.shopin.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-import java.io.Serializable;
 
 @Entity(tableName = "products")
-public class Product {
+public class Product implements Parcelable {
 
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "product_name")
     public String productName;
 
-    @ColumnInfo(name = "category")
-    public String category;
+    @ColumnInfo(name = "product_category")
+    public String productCategory;
 
     @Ignore
     @ColumnInfo(name = "quantity")
     public int quantity;
 
-    @Ignore
-    public Product() {
+//    @Ignore
+//    public Product() {
+//
+//    }
 
+    public Product(String productName, String productCategory) {
+        this.productName = productName;
+        this.productCategory = productCategory;
     }
 
-    public Product(String productName, String category) {
+    public Product(String productName, String productCategory, int quantity) {
         this.productName = productName;
-        this.category = category;
-    }
-
-    public Product(String productName, String category, int quantity) {
-        this.productName = productName;
-        this.category = category;
+        this.productCategory = productCategory;
         this.quantity = quantity;
+    }
+
+    public Product(Parcel parcel) {
+        this.productName = parcel.readString();
+        this.productCategory = parcel.readString();
     }
 
     public String getProductName() {
@@ -46,12 +52,12 @@ public class Product {
         this.productName = productName;
     }
 
-    public String getCategory() {
-        return category;
+    public String getProductCategory() {
+        return productCategory;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setProductCategory(String productCategory) {
+        this.productCategory = productCategory;
     }
 
     public int getQuantity() {
@@ -63,9 +69,32 @@ public class Product {
     }
 
     @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(productName);
+        dest.writeString(productCategory);
+    }
+    
+    public static final Parcelable.Creator<Product> CREATOR = new Parcelable.Creator<Product>() {
+
+        @Override
+        public Product createFromParcel(Parcel parcel) {
+            return new Product(parcel);
+        }
+
+        public Product[] newArray(int size) {
+            return new Product[0];
+        }
+    };
+
+    @Override
     public String toString() {
         return "Product name='" + productName + '\'' +
-                ", category='" + category + '\'' +
+                ", productCategory='" + productCategory + '\'' +
                 ", quantity=" + quantity +
                 '}';
     }
