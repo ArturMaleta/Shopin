@@ -17,11 +17,15 @@ import mal.art.shopin.Model.Product;
 public abstract class ProductRoomDatabase extends RoomDatabase {
 
   private static final String DB_NAME = "shopinDb";
+
   private static final int NUMBERS_OF_THREADS = 4;
+
   private static ProductRoomDatabase INSTANCE;
+
   public static final ExecutorService dbExecutor = Executors.newFixedThreadPool(NUMBERS_OF_THREADS);
 
   private static final String owoc = "Owoce";
+
   private static final String warzywo = "Warzywa";
 
   public static synchronized ProductRoomDatabase getInstance(Context context) {
@@ -34,20 +38,6 @@ public abstract class ProductRoomDatabase extends RoomDatabase {
     return INSTANCE;
   }
 
-//  private static ProductRoomDatabase buildDatabase(final Context context) {
-//    return Room.databaseBuilder(context,
-//      ProductRoomDatabase.class,
-//      DB_NAME)
-//      .addCallback(new Callback() {
-//        @Override
-//        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-//          super.onCreate(db);
-//          // ogarnij to następnie https://android.jlelse.eu/pre-populate-room-database-6920f9acc870
-//        }
-//      })
-//      .build();
-//  }
-
   public abstract ProductsDAO productsDAO();
 
   private static RoomDatabase.Callback sCallback = new RoomDatabase.Callback() {
@@ -56,8 +46,8 @@ public abstract class ProductRoomDatabase extends RoomDatabase {
       super.onCreate(db);
       dbExecutor.execute(() -> {
         ProductsDAO dao = INSTANCE.productsDAO();
-//        productList jest pusty
-//        LiveData<List<Product>> productList = dao.getAllProducts();
+        //        productList jest pusty
+        //        LiveData<List<Product>> productList = dao.getAllProducts();
 
         // dopóki nie ogarnę czemu mi się baza nie prepopuluje, muszę pracować na tym
         Product agrest = new Product("Agrest", owoc);
@@ -74,7 +64,7 @@ public abstract class ProductRoomDatabase extends RoomDatabase {
         dao.insertProduct(brokul);
 
         Log.d("BAZA DANYCH ZAŁADOWANA", "POPRAWNIE");
-        });
+      });
     }
 
     @Override
@@ -84,6 +74,4 @@ public abstract class ProductRoomDatabase extends RoomDatabase {
       LiveData<List<Product>> productList = dao.getAllProducts();
     }
   };
-
-
 }

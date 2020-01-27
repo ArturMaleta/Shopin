@@ -10,10 +10,10 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
-    <activity android:name=".View.AddNewProduct"></activity>
-    <activity android:name=".View.ProductsList" />
-    <activity android:name=".View.ShoppingList" />
-    <activity android:name=".View.MainScreen">
+    <activity android:name=".Activity.AddNewProduct"></activity>
+    <activity android:name=".Activity.ProductsList" />
+    <activity android:name=".Activity.ShoppingList" />
+    <activity android:name=".Activity.MainScreen">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 

@@ -17,7 +17,4 @@ public interface ProductsDAO {
 
   @Query("SELECT * FROM products")
   LiveData<List<Product>> getAllProducts();
-
-//  @Query("SELECT * FROM products")
-//  List<Product> getProducts();
 }
