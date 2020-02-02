@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">Shopin</string>
-    <string name="make_shopping_list">STWÓRZ LISTĘ</string>
-    <string name="my_list">MOJA LISTA</string>
-    <string name="create_list">STWÓRZ LISTĘ ZAKUPÓW</string>
-    <string name="save">ZAPISZ</string>
-    <string name="add_product">DODAJ PRODUKT</string>
-    <string name="adding_product_name">NAZWA PRODUKTU</string>
-    <string name="adding_product_category">KATEGORIA PRODUKTU</string>
-    <string name="empty_field">PODAJ DANE PRODUKTU</string>
+  <string name="app_name">Shopin</string>
+  <string name="make_shopping_list">STWÓRZ LISTĘ</string>
+  <string name="my_list">MOJA LISTA</string>
+  <string name="create_list">STWÓRZ LISTĘ ZAKUPÓW</string>
+  <string name="save">ZAPISZ</string>
+  <string name="add_product">DODAJ PRODUKT</string>
+  <string name="adding_product_name">NAZWA PRODUKTU</string>
+  <string name="adding_product_category">KATEGORIA PRODUKTU</string>
+  <string name="empty_field">PODAJ DANE PRODUKTU</string>
 </resources>
