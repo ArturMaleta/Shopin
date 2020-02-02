@@ -32,30 +32,30 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     }
   }
 
-  private LayoutInflater mInflater;
+  private LayoutInflater inflater;
 
-  private List<Product> mProducts;
+  private List<Product> products;
 
-  private OnAddProductListener mOnAddProductListener;
+  private OnAddProductListener onAddProductListener;
 
   // nie przekazuj contextu w konstruktorze. znajdź jak to zrobić
   public ProductListAdapter(Context context, OnAddProductListener onAddProductListener) {
-    mInflater = LayoutInflater.from(context);
-    this.mOnAddProductListener = onAddProductListener;
+    inflater = LayoutInflater.from(context);
+    this.onAddProductListener = onAddProductListener;
   }
 
   @NonNull
   @Override
   public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-    View v = mInflater.inflate(R.layout.products_recyclerview_item, parent, false);
+    View v = inflater.inflate(R.layout.products_recyclerview_item, parent, false);
 
-    return new ProductViewHolder(v, mOnAddProductListener);
+    return new ProductViewHolder(v, onAddProductListener);
   }
 
   @Override
   public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
-    if (mProducts != null) {
-      Product curProductName = mProducts.get(position);
+    if (products != null) {
+      Product curProductName = products.get(position);
       holder.productName_txtView.setText(curProductName.getProductName());
     } else {
       holder.productName_txtView.setText("No product");
@@ -63,14 +63,14 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
   }
 
   public void setProducts(List<Product> products) {
-    mProducts = products;
+    this.products = products;
     notifyDataSetChanged();
   }
 
   @Override
   public int getItemCount() {
-    if (mProducts != null) {
-      return mProducts.size();
+    if (products != null) {
+      return products.size();
     } else {
       return 0;
     }

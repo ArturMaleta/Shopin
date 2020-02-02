@@ -22,11 +22,11 @@ public class ProductsList extends AppCompatActivity implements ProductListAdapte
 
   private RecyclerView recyclerView;
 
-  private List<Product> mProductsList = new ArrayList<>();
+  private List<Product> productsList = new ArrayList<>();
 
   private ImageView opacityToBackgroundImage;
 
-  private ProductViewModel mProductViewModel;
+  private ProductViewModel productViewModel;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +42,17 @@ public class ProductsList extends AppCompatActivity implements ProductListAdapte
     recyclerView.setAdapter(adapter);
     recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-    mProductViewModel = ViewModelProviders.of(this).get(ProductViewModel.class);
-    mProductViewModel.getAllProducts().observe(this, products -> {
+    productViewModel = ViewModelProviders.of(this).get(ProductViewModel.class);
+    productViewModel.getAllProducts().observe(this, products -> {
       adapter.setProducts(products);
     });
+  }
+
+  @Override
+  protected void onStart() {
+    super.onStart();
+    View overlay = findViewById(R.id.product_list_layout);
+    overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN);
   }
 
   public void goToProductsList(View view) {
@@ -57,32 +64,10 @@ public class ProductsList extends AppCompatActivity implements ProductListAdapte
   public void onProductClick(int position) {
     // Dokończ to wywoływanie okna do dodawania produktu do listy zakupów. REQUEST_CODE jest placeholderem
     // jak sprawdzić który produkt jest klikalny - czyli do czego robić odowłanie .get(position)
-    //    mProductsList.get(position);
+    //    productsList.get(position);
     //    Intent intent = new Intent(ProductsList.this, AddProductToShoppingList.class);
     //    startActivityForResult(intent, REQUEST_CODE);
 
     Toast.makeText(getApplicationContext(), "click", Toast.LENGTH_SHORT).show();
-  }
-
-  @Override
-  public void onWindowFocusChanged(boolean hasFocus) {
-    super.onWindowFocusChanged(hasFocus);
-    if (hasFocus) {
-      hideSystemUI();
-    }
-  }
-
-  private void hideSystemUI() {
-    View decorView = getWindow().getDecorView();
-    decorView.setSystemUiVisibility(
-      View.SYSTEM_UI_FLAG_IMMERSIVE
-        // Set the content to appear under the system bars so that the
-        // content doesn't resize when the system bars hide and show.
-        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-        // Hide the nav bar and status bar
-        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-        | View.SYSTEM_UI_FLAG_FULLSCREEN);
   }
 }

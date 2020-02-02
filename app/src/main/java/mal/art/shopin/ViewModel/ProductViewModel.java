@@ -10,21 +10,21 @@ import mal.art.shopin.Repository.ProductRepository;
 
 public class ProductViewModel extends AndroidViewModel {
 
-  private ProductRepository mRepository;
+  private ProductRepository repository;
 
-  private LiveData<List<Product>> mAllProducts;
+  private LiveData<List<Product>> allProducts;
 
   public ProductViewModel(@NonNull Application application) {
     super(application);
-    mRepository = new ProductRepository(application);
-    mAllProducts = mRepository.getAllProducts();
+    repository = new ProductRepository(application);
+    allProducts = repository.getAllProducts();
   }
 
   public LiveData<List<Product>> getAllProducts() {
-    return mAllProducts;
+    return allProducts;
   }
 
   public void insert(Product product) {
-    mRepository.insert(product);
+    repository.insert(product);
   }
 }

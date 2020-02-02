@@ -17,9 +17,9 @@ public class AddNewProduct extends AppCompatActivity {
 
   private Button saveProductBtn;
 
-  private EditText mProductName;
+  private EditText productName;
 
-  private EditText mProductCategory; // tutaj będzie enum w pickerze
+  private EditText productCategory; // tutaj będzie enum w pickerze
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -34,23 +34,30 @@ public class AddNewProduct extends AppCompatActivity {
 
     getWindow().setLayout((int) (width * .8), (int) (height * .35));
 
-    mProductName = findViewById(R.id.product_name_to_save);
-    mProductCategory = findViewById(R.id.product_category_to_save);
+    productName = findViewById(R.id.product_name_to_save);
+    productCategory = findViewById(R.id.product_category_to_save);
     saveProductBtn = findViewById(R.id.save_button);
 
     saveProductBtn.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
         Intent replyIntent = new Intent(AddNewProduct.this, MainScreen.class);
-        if (TextUtils.isEmpty(mProductName.getText()) && TextUtils.isEmpty(mProductCategory.getText())) {
+        if (TextUtils.isEmpty(productName.getText()) && TextUtils.isEmpty(productCategory.getText())) {
           setResult(RESULT_CANCELED, replyIntent);
         } else {
-          Product productToPut = new Product(mProductName.getText().toString(), mProductCategory.getText().toString());
+          Product productToPut = new Product(productName.getText().toString(), productCategory.getText().toString());
           replyIntent.putExtra(SAVE_PRODUCT_REPLY, productToPut);
           setResult(RESULT_OK, replyIntent);
         }
         finish();
       }
     });
+  }
+
+  @Override
+  protected void onStart() {
+    super.onStart();
+    View overlay = findViewById(R.id.add_new_product_layout);
+    overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN);
   }
 }

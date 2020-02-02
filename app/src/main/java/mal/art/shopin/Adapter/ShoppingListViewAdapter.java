@@ -13,9 +13,9 @@ import mal.art.shopin.R;
 
 public class ShoppingListViewAdapter extends RecyclerView.Adapter<ShoppingListViewAdapter.ShoppingListViewHolder> {
 
-  private LayoutInflater mInflater;
+  private LayoutInflater inflater;
 
-  private List<Product> mProducts;
+  private List<Product> products;
 
   class ShoppingListViewHolder extends RecyclerView.ViewHolder {
 
@@ -30,21 +30,21 @@ public class ShoppingListViewAdapter extends RecyclerView.Adapter<ShoppingListVi
   }
 
   public ShoppingListViewAdapter(Context context) {
-    mInflater = LayoutInflater.from(context);
+    inflater = LayoutInflater.from(context);
   }
 
   @NonNull
   @Override
   public ShoppingListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-    View v = mInflater.inflate(R.layout.shopping_list_recyclerview_item, parent, false);
+    View v = inflater.inflate(R.layout.shopping_list_recyclerview_item, parent, false);
 
     return new ShoppingListViewHolder(v);
   }
 
   @Override
   public void onBindViewHolder(@NonNull ShoppingListViewHolder holder, int position) {
-    if (mProducts != null) {
-      Product currProductName = mProducts.get(position);
+    if (products != null) {
+      Product currProductName = products.get(position);
       holder.productName_txtView.setText(currProductName.getProductName());
       holder.quantity_txtView.setText(currProductName.getQuantity());
       holder.productUnit_txtView.setText(currProductName.getProductUnit());
@@ -55,8 +55,8 @@ public class ShoppingListViewAdapter extends RecyclerView.Adapter<ShoppingListVi
 
   @Override
   public int getItemCount() {
-    if (mProducts != null) {
-      return mProducts.size();
+    if (products != null) {
+      return products.size();
     } else {
       return 0;
     }

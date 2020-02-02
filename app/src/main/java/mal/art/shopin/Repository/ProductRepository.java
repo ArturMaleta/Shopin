@@ -10,22 +10,22 @@ import mal.art.shopin.Model.Product;
 
 public class ProductRepository {
 
-  private ProductsDAO mProductDao;
+  private ProductsDAO productDao;
 
-  private LiveData<List<Product>> mAllProducts;
+  private LiveData<List<Product>> allProducts;
 
   public ProductRepository(Application application) {
     ProductRoomDatabase db = ProductRoomDatabase.getInstance(application);
-    mProductDao = db.productsDAO();
-    mAllProducts = mProductDao.getAllProducts();
+    productDao = db.productsDAO();
+    allProducts = productDao.getAllProducts();
   }
 
   public LiveData<List<Product>> getAllProducts() {
-    return mAllProducts;
+    return allProducts;
   }
 
   public void insert(final Product product) {
     ProductRoomDatabase.dbExecutor.execute(() ->
-      mProductDao.insertProduct(product));
+      productDao.insertProduct(product));
   }
 }

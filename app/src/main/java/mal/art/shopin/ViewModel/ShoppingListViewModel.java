@@ -8,11 +8,11 @@ import mal.art.shopin.Repository.ProductRepository;
 
 public class ShoppingListViewModel extends ViewModel {
 
-  private ProductRepository mRepository;
+  private ProductRepository repository;
 
   private String productName, productUnit;
 
   private int productQuantity;
 
-  private MutableLiveData<List<Product>> mShoppingList;
+  private MutableLiveData<List<Product>> shoppingList;
 }
