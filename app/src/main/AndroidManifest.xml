@@ -3,6 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="mal.art.shopin">
 
+  <uses-permission android:name="android.permission.INTERNET"/>
+
   <application
       android:allowBackup="true"
       android:icon="@mipmap/ic_launcher"
@@ -10,11 +12,14 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
-    <activity android:name=".activity.AddProductToShoppingList"></activity>
+    <activity android:name=".activity.ForgotPassword"></activity>
+    <activity android:name=".activity.RegisterUser" />
+    <activity android:name=".activity.AddProductToShoppingList" />
     <activity android:name=".activity.AddNewProduct" />
     <activity android:name=".activity.ProductsList" />
     <activity android:name=".activity.ShoppingList" />
-    <activity android:name=".activity.MainScreen">
+    <activity android:name=".activity.MainScreen" />
+    <activity android:name=".activity.Login">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 
@@ -22,5 +27,6 @@
       </intent-filter>
     </activity>
   </application>
+
 
 </manifest>

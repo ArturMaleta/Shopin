@@ -1,5 +1,20 @@
 <resources>
   <string name="app_name">Shopin</string>
+  <string name="username_hint">LOGIN...</string>
+  <string name="password_hint">HASŁO...</string>
+  <string name="login_button">ZALOGUJ</string>
+  <string name="go_to_register_button">NOWY UŻYTKOWNIK</string>
+  <string name="forgo_password"><u>ZAPOMNIAŁEM HASŁA... :(</u></string>
+  <string name="email_hint">EMAIL...</string>
+  <string name="login_failed_err">Coś nie bangla ziomuś \n Sprawdź login i hasło</string>
+  <string name="new_user_password">HASŁO...</string>
+  <string name="new_user_password_confirm">POWTÓRZ HASŁO...</string>
+  <string name="new_user_confirm_button">ZAREJESTRUJ UŻYTKOWNIKA</string>
+  <string name="forgot_password_desc_tv">PODAJ EMAIL, ABY ZRESETOWAĆ HASŁO</string>
+  <string name="empty_email_password">Email oraz hasło nie mogą być puste, debilu</string>
+  <string name="wrong_password_confirmation_err">Hasła nie są takie same</string>
+  <string name="weak_password_err">Hasło musi zawierać więcej niż 6 znaków</string>
+  <string name="user_exist_err">Użytkownik o takim emailu już istnieje</string>
   <string name="make_shopping_list">STWÓRZ LISTĘ</string>
   <string name="my_list">MOJA LISTA</string>
   <string name="create_list">STWÓRZ LISTĘ ZAKUPÓW</string>
@@ -8,4 +23,6 @@
   <string name="adding_product_name">NAZWA PRODUKTU</string>
   <string name="adding_product_category">KATEGORIA PRODUKTU</string>
   <string name="empty_field">PODAJ DANE PRODUKTU</string>
+  <string name="add_product_spinner_prompt">Wybierz kategorię produktu</string>
+  <string name="add_product_to_shopping_list_quantity_hint">liczba</string>
 </resources>
