@@ -12,7 +12,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_login.*
 import mal.art.shopin.R
 
 class Login : AppCompatActivity() {

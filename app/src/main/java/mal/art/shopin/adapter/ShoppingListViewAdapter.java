@@ -8,8 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
-import mal.art.shopin.model.Product;
 import mal.art.shopin.R;
+import mal.art.shopin.model.Product;
 
 public class ShoppingListViewAdapter extends RecyclerView.Adapter<ShoppingListViewAdapter.ShoppingListViewHolder> {
 

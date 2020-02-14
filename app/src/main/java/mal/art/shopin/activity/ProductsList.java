@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
+import mal.art.shopin.R;
 import mal.art.shopin.adapter.ProductListAdapter;
 import mal.art.shopin.model.Product;
-import mal.art.shopin.R;
 import mal.art.shopin.viewModel.ProductViewModel;
 
 public class ProductsList extends AppCompatActivity implements ProductListAdapter.OnAddProductListener {

@@ -8,9 +8,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
-import com.google.firebase.auth.FirebaseAuth;
-import mal.art.shopin.model.Product;
 import mal.art.shopin.R;
+import mal.art.shopin.model.Product;
 import mal.art.shopin.viewModel.ProductViewModel;
 
 public class MainScreen extends AppCompatActivity {
