@@ -14,15 +14,15 @@ import mal.art.shopin.viewModel.ProductViewModel;
 
 public class MainScreen extends AppCompatActivity {
 
-  public static final int NEW_PRODUCT_ACTIVITY_REQUEST_CODE = 1;
+  private static final int NEW_PRODUCT_ACTIVITY_REQUEST_CODE = 1;
 
-  ImageView opacityToBackgroundImage;
+  private ImageView opacityToBackgroundImage;
 
-  Button goToShoppingList;
+  private Button goToShoppingList;
 
-  Button goToProductsList;
+  private Button goToProductsList;
 
-  Button addNewProduct;
+  private Button addNewProduct;
 
   private ProductViewModel productViewModel;
 

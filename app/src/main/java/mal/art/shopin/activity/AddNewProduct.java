@@ -18,8 +18,6 @@ public class AddNewProduct extends AppCompatActivity {
 
   public static final String SAVE_PRODUCT_REPLY = "mal.art.shopin.save_product.REPLY";
 
-  private Button saveProductBtn;
-
   private EditText productName;
 
   private Spinner productCategory;
@@ -44,7 +42,7 @@ public class AddNewProduct extends AppCompatActivity {
 
     productName = findViewById(R.id.product_name_to_save);
     productCategory = findViewById(R.id.add_new_product_spinner);
-    saveProductBtn = findViewById(R.id.save_button);
+    Button saveProductBtn = findViewById(R.id.save_button);
 
     productCategory.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ProductCategoryEnum.values()));
 

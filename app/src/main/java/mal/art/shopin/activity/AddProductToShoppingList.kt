@@ -73,7 +73,11 @@ class AddProductToShoppingList : AppCompatActivity() {
   }
 
   private fun loadSpinnerValues(productUnitSp: Spinner) {
-    val adapter = ArrayAdapter<ProductUnitEnum>(this, android.R.layout.simple_list_item_1, ProductUnitEnum.values())
+    val adapter = ArrayAdapter<ProductUnitEnum>(
+      this,
+      android.R.layout.simple_list_item_1,
+      ProductUnitEnum.values()
+    )
     productUnitSp.adapter = adapter
   }
 

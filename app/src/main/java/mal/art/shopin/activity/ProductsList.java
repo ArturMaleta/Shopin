@@ -21,34 +21,26 @@ public class ProductsList extends AppCompatActivity implements ProductListAdapte
 
   public static final int PRODUCT_ADD_REQUEST_CODE = 1;
 
-  private RecyclerView recyclerView;
-
   private List<Product> productsList = new ArrayList<>();
-
-  private ImageView opacityToBackgroundImage;
-
-  private ProductViewModel productViewModel;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_products_list);
-    recyclerView = findViewById(R.id.product_list_recycler_view);
+    RecyclerView recyclerView = findViewById(R.id.product_list_recycler_view);
 
     // should be done during graphic design
-    opacityToBackgroundImage = findViewById(R.id.opacity_background_image);
+    ImageView opacityToBackgroundImage = findViewById(R.id.opacity_background_image);
     opacityToBackgroundImage.setImageAlpha(80);
 
     final ProductListAdapter adapter = new ProductListAdapter(this, this);
     recyclerView.setAdapter(adapter);
     recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-    productViewModel = ViewModelProviders.of(this).get(ProductViewModel.class);
+    ProductViewModel productViewModel = ViewModelProviders.of(this).get(ProductViewModel.class);
     productViewModel.getAllProducts().observe(this, products -> {
       adapter.setProducts(products);
-      for (Product currProduct : products) {
-        productsList.add(currProduct);
-      }
+      productsList.addAll(products);
     });
   }
 
