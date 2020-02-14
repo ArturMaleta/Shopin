@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/register_user_main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.RegisterUser">
+
+  <ImageView
+      android:id="@+id/background_image"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent"
+      android:background="@drawable/bckgrnd1"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <ImageView
+      android:id="@+id/opacity_background_image"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:alpha="50"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.0"
+      app:srcCompat="@color/colorPrimary" />
+
+  <LinearLayout
+      android:id="@+id/register_items_layout"
+      style="@style/AppTheme"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/margin_small"
+      android:layout_marginTop="@dimen/margin_top_big"
+      android:layout_marginEnd="@dimen/margin_small"
+      android:background="@android:color/white"
+      android:orientation="vertical"
+      android:padding="@dimen/margin_small"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+    <EditText
+        android:id="@+id/new_user_username_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:layout_weight="1"
+        android:hint="@string/email_hint" />
+
+    <EditText
+        android:id="@+id/new_user_password_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:layout_weight="1"
+        android:hint="@string/new_user_password" />
+
+    <EditText
+        android:id="@+id/new_user_password_confirm_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:layout_weight="1"
+        android:hint="@string/new_user_password_confirm" />
+
+    <Button
+        android:id="@+id/new_user_confirm_btn"
+        style="@style/AppTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/btn"
+        android:text="@string/new_user_confirm_button" />
+
+  </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

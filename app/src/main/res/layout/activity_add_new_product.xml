@@ -1,44 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/add_new_product_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
-
+    android:orientation="vertical"
+    android:layout_margin="@dimen/popup_window_margin">
 
   <EditText
       android:id="@+id/product_name_to_save"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="@dimen/big_padding"
-      android:layout_marginTop="@dimen/big_padding"
+      android:layout_height="0dp"
+      android:layout_weight="1"
       android:fontFamily="sans-serif-light"
       android:hint="@string/adding_product_name"
       android:inputType="textAutoComplete"
       android:padding="@dimen/small_padding"
-      android:textSize="18sp" />
+      android:textSize="@dimen/standart_font_size" />
 
-  <EditText
-      android:id="@+id/product_category_to_save"
+  <Spinner
+      android:id="@+id/add_new_product_spinner"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_below="@id/product_name_to_save"
-      android:fontFamily="sans-serif-light"
-      android:hint="@string/adding_product_category"
-      android:inputType="textAutoComplete"
-      android:padding="@dimen/small_padding"
-      android:layout_marginBottom="@dimen/small_padding"
-      android:textSize="18sp" />
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:layout_marginTop="@dimen/popup_window_margin"
+      android:prompt="@string/add_product_spinner_prompt"/>
 
   <Button
       android:id="@+id/save_button"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginTop="@dimen/big_padding"
-      android:layout_below="@id/product_category_to_save"
+      android:layout_marginTop="@dimen/popup_window_margin"
       android:background="@drawable/btn"
       android:text="@string/save" />
+</LinearLayout>
 
-</RelativeLayout>

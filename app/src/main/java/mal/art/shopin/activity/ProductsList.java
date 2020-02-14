@@ -2,8 +2,10 @@ package mal.art.shopin.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,7 +19,7 @@ import mal.art.shopin.viewModel.ProductViewModel;
 
 public class ProductsList extends AppCompatActivity implements ProductListAdapter.OnAddProductListener {
 
-  public static final int REQUEST_CODE = 1;
+  public static final int PRODUCT_ADD_REQUEST_CODE = 1;
 
   private RecyclerView recyclerView;
 
@@ -66,8 +68,21 @@ public class ProductsList extends AppCompatActivity implements ProductListAdapte
   public void onProductClick(int position) {
     String productName = productsList.get(position).getProductName();
     Intent intent = new Intent(ProductsList.this, AddProductToShoppingList.class);
-    intent.putExtra("productToAdd", productName);
-    startActivityForResult(intent, REQUEST_CODE);
+    intent.putExtra("productNameToAdd", productName);
+    startActivityForResult(intent, PRODUCT_ADD_REQUEST_CODE);
 //    Toast.makeText(ProductsList.this, "click " + productName, Toast.LENGTH_SHORT).show();
+  }
+
+  @Override
+  protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+
+    if (requestCode == PRODUCT_ADD_REQUEST_CODE && resultCode == RESULT_OK) {
+      String productName = data.getStringExtra("productName");
+      String productQuantity = data.getStringExtra("productQuantity");
+      String productUnit = data.getStringExtra("productUnit");
+
+      Log.d("PRODUKT ZAPISANY DO FB", productName + " " + productQuantity + " " + productUnit);
+    }
   }
 }
