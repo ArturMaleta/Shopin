@@ -44,27 +44,7 @@ public abstract class ProductRoomDatabase extends RoomDatabase {
     @Override
     public void onCreate(@NonNull SupportSQLiteDatabase db) {
       super.onCreate(db);
-      dbExecutor.execute(() -> {
-        ProductsDAO dao = INSTANCE.productsDAO();
-        //        productList jest pusty
-        //        LiveData<List<Product>> productList = dao.getAllProducts();
-
-        // dopóki nie ogarnę czemu mi się baza nie prepopuluje, muszę pracować na tym
-        Product agrest = new Product("Agrest", owoc);
-        Product arbuz = new Product("Arbuz", owoc);
-        Product ananas = new Product("Ananas", owoc);
-        Product baklazan = new Product("Bakłażan", warzywo);
-        Product bob = new Product("Bób", warzywo);
-        Product brokul = new Product("Brokuł", warzywo);
-        dao.insertProduct(agrest);
-        dao.insertProduct(arbuz);
-        dao.insertProduct(ananas);
-        dao.insertProduct(baklazan);
-        dao.insertProduct(bob);
-        dao.insertProduct(brokul);
-
-        Log.d("BAZA DANYCH ZAŁADOWANA", "POPRAWNIE");
-      });
+      prePopulateProducts();
     }
 
     @Override
@@ -74,4 +54,26 @@ public abstract class ProductRoomDatabase extends RoomDatabase {
       LiveData<List<Product>> productList = dao.getAllProducts();
     }
   };
+
+  private static void prePopulateProducts() {
+    dbExecutor.execute(() -> {
+      ProductsDAO dao = INSTANCE.productsDAO();
+
+      // dopóki nie ogarnę czemu mi się baza nie prepopuluje, muszę pracować na tym
+      Product agrest = new Product("Agrest", owoc);
+      Product arbuz = new Product("Arbuz", owoc);
+      Product ananas = new Product("Ananas", owoc);
+      Product baklazan = new Product("Bakłażan", warzywo);
+      Product bob = new Product("Bób", warzywo);
+      Product brokul = new Product("Brokuł", warzywo);
+      dao.insertProduct(agrest);
+      dao.insertProduct(arbuz);
+      dao.insertProduct(ananas);
+      dao.insertProduct(baklazan);
+      dao.insertProduct(bob);
+      dao.insertProduct(brokul);
+
+      Log.d("BAZA DANYCH ZAŁADOWANA", "POPRAWNIE");
+    });
+  }
 }

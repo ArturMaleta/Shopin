@@ -17,25 +17,32 @@ import mal.art.shopin.model.ProductUnitEnum
 
 class AddProductToShoppingList : AppCompatActivity() {
 
+
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_add_product_to_shopping_list)
+
 
     val productNameTv = findViewById<TextView>(R.id.to_shopping_list_product_name)
     val productQuantityEt = findViewById<EditText>(R.id.to_shopping_list_product_quantity)
     val productUnitSp = findViewById<Spinner>(R.id.to_shopping_list_product_unit_spinner)
     val addProductBtn = findViewById<Button>(R.id.add_product_to_shopping_list_btn)
 
+    val productName = intent.getStringExtra("productNameToAdd")
+    val productCategory = intent.getStringExtra("productCategoryToAdd")
+    productNameTv.text = productName
+
     showPopupWindow()
     loadSpinnerValues(productUnitSp)
-    val productNameToSave = loadProductName(productNameTv)
 
     // sprawdź jakie wyniki będą miały pozostałe funckje zakresowe w tym przypadku
     addProductBtn.setOnClickListener {
       val productQuantity = productQuantityEt.text.toString()
       val productUnit = productUnitSp.selectedItem.toString()
       val productToSaveIntent = Intent(this, ProductsList::class.java).apply {
-        putExtra("productName", productNameToSave)
+        putExtra("productName", productName)
+        putExtra("productCategory", productCategory)
         putExtra("productQuantity", productQuantity)
         putExtra("productUnit", productUnit)
       }
@@ -64,12 +71,8 @@ class AddProductToShoppingList : AppCompatActivity() {
     )
   }
 
-  private fun loadProductName(productNameTv: TextView): String {
-    val productName = intent.getStringExtra("productNameToAdd")
-    val bundle: Bundle? = intent.extras
-    productNameTv.text = productName
-
-    return productName
+  private fun loadProductName(productNameTv: TextView) {
+    productNameTv.text = intent.getStringExtra("productNameToAdd")
   }
 
   private fun loadSpinnerValues(productUnitSp: Spinner) {

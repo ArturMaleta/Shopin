@@ -15,6 +15,7 @@ import java.util.List;
 import mal.art.shopin.R;
 import mal.art.shopin.adapter.ProductListAdapter;
 import mal.art.shopin.model.Product;
+import mal.art.shopin.repository.ProductRepository;
 import mal.art.shopin.viewModel.ProductViewModel;
 
 public class ProductsList extends AppCompatActivity implements ProductListAdapter.OnAddProductListener {
@@ -59,8 +60,10 @@ public class ProductsList extends AppCompatActivity implements ProductListAdapte
   @Override
   public void onProductClick(int position) {
     String productName = productsList.get(position).getProductName();
+    String productCategory = productsList.get(position).getProductCategory();
     Intent intent = new Intent(ProductsList.this, AddProductToShoppingList.class);
     intent.putExtra("productNameToAdd", productName);
+    intent.putExtra("productCategoryToAdd", productCategory);
     startActivityForResult(intent, PRODUCT_ADD_REQUEST_CODE);
 //    Toast.makeText(ProductsList.this, "click " + productName, Toast.LENGTH_SHORT).show();
   }
@@ -71,8 +74,11 @@ public class ProductsList extends AppCompatActivity implements ProductListAdapte
 
     if (requestCode == PRODUCT_ADD_REQUEST_CODE && resultCode == RESULT_OK) {
       String productName = data.getStringExtra("productName");
-      String productQuantity = data.getStringExtra("productQuantity");
+      String productCategory = data.getStringExtra("productCategory");
+      int productQuantity = Integer.valueOf(data.getStringExtra("productQuantity"));
       String productUnit = data.getStringExtra("productUnit");
+
+      ProductRepository.insertToShoppingList(productName, productCategory, productQuantity, productUnit);
 
       Log.d("PRODUKT ZAPISANY DO FB", productName + " " + productQuantity + " " + productUnit);
     }
