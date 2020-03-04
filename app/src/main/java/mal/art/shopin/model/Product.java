@@ -25,9 +25,12 @@ public class Product implements Parcelable {
   public int quantity;
 
   @Ignore
-  public int productUnit;
+  public String productUnit;
 
-  // dla Firebase'a
+  @Ignore
+  private String shoppingStatus;
+
+  // for Firebase
   public Product() {
 
   }
@@ -41,6 +44,14 @@ public class Product implements Parcelable {
     this.productName = productName;
     this.productCategory = productCategory;
     this.quantity = quantity;
+  }
+
+  // to Firebase
+  public Product(String productCategory, int quantity, String productUnit, String shoppingStatus) {
+    this.productCategory = productCategory;
+    this.quantity = quantity;
+    this.productUnit = productUnit;
+    this.shoppingStatus = shoppingStatus;
   }
 
   public Product(Parcel parcel) {
@@ -72,11 +83,11 @@ public class Product implements Parcelable {
     this.quantity = quantity;
   }
 
-  public int getProductUnit() {
+  public String getProductUnit() {
     return productUnit;
   }
 
-  public void setProductUnit(int unit) {
+  public void setProductUnit(String unit) {
     this.productUnit = unit;
   }
 
