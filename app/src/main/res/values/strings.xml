@@ -18,7 +18,7 @@
   <string name="reset_password_btn">NO TO FRUUU</string>
   <string name="forgot_password_err">A email?!</string>
   <string name="make_shopping_list">STWÓRZ LISTĘ</string>
-  <string name="my_list">MOJA LISTA</string>
+  <string name="my_list">MOJE LISTY</string>
   <string name="create_list">STWÓRZ LISTĘ ZAKUPÓW</string>
   <string name="save">ZAPISZ</string>
   <string name="add_product">DODAJ PRODUKT</string>
@@ -27,4 +27,5 @@
   <string name="empty_field">PODAJ DANE PRODUKTU</string>
   <string name="add_product_spinner_prompt">Wybierz kategorię produktu</string>
   <string name="add_product_to_shopping_list_quantity_hint">liczba</string>
+  <string name="no_shopping_list_available">NO SHOPPING LISTS</string>
 </resources>

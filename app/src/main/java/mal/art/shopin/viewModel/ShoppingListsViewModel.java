@@ -20,3 +20,4 @@ public class ShoppingListsViewModel extends AndroidViewModel {
     return repository.getDataSnapshotLiveData();
   }
 }
+

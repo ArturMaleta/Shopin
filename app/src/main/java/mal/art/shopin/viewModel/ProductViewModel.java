@@ -12,16 +12,13 @@ public class ProductViewModel extends AndroidViewModel {
 
   private ProductRepository repository;
 
-  private LiveData<List<Product>> allProducts;
-
   public ProductViewModel(@NonNull Application application) {
     super(application);
     repository = new ProductRepository(application);
-    allProducts = repository.getAllProducts();
   }
 
   public LiveData<List<Product>> getAllProducts() {
-    return allProducts;
+    return repository.getAllProducts();
   }
 
   public void insert(Product product) {

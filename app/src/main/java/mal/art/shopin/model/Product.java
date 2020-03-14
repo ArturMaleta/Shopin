@@ -7,6 +7,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+import org.jetbrains.annotations.NotNull;
 
 @Entity(tableName = "products")
 public class Product implements Parcelable {
@@ -15,17 +16,15 @@ public class Product implements Parcelable {
   @PrimaryKey
   @NonNull
   @ColumnInfo(name = "product_name")
-  public String productName;
+  private String productName;
 
   @ColumnInfo(name = "product_category")
-  public String productCategory;
+  private String productCategory;
 
   @Ignore
-  @ColumnInfo(name = "quantity")
-  public int quantity;
+  @ColumnInfo(name = "quantity") private int quantity;
 
-  @Ignore
-  public String productUnit;
+  @Ignore private String productUnit;
 
   @Ignore
   private String shoppingStatus;
@@ -59,11 +58,12 @@ public class Product implements Parcelable {
     this.productCategory = parcel.readString();
   }
 
+  @NotNull
   public String getProductName() {
     return productName;
   }
 
-  public void setProductName(String productName) {
+  public void setProductName(@NotNull String productName) {
     this.productName = productName;
   }
 
@@ -89,6 +89,14 @@ public class Product implements Parcelable {
 
   public void setProductUnit(String unit) {
     this.productUnit = unit;
+  }
+
+  public String getShoppingStatus() {
+    return shoppingStatus;
+  }
+
+  public void setShoppingStatus(String shoppingStatus) {
+    this.shoppingStatus = shoppingStatus;
   }
 
   @Override

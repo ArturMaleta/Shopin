@@ -5,24 +5,48 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.google.firebase.database.DataSnapshot;
+import java.util.ArrayList;
+import java.util.List;
 import mal.art.shopin.R;
+import mal.art.shopin.adapter.ListOfShoppingListsViewAdapter;
+import mal.art.shopin.viewModel.ShoppingListsViewModel;
 
 public class ShoppingList extends AppCompatActivity {
 
   ImageView opacityToBackgroundImage;
 
-  private DatabaseReference dbRef = FirebaseDatabase.getInstance("https://shopin-f7853.firebaseio.com").getReference("Product");
+  List<String> listOfShoppingLists = new ArrayList<>();
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_shopping_list);
+    RecyclerView recyclerView = findViewById(R.id.list_of_shopping_list_recycler_view);
 
     // should be done during graphic design
     opacityToBackgroundImage = findViewById(R.id.opacity_background_image);
     opacityToBackgroundImage.setImageAlpha(80);
+
+    final ListOfShoppingListsViewAdapter adapter = new ListOfShoppingListsViewAdapter(this);
+    recyclerView.setAdapter(adapter);
+    recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+    ShoppingListsViewModel listOfShoppingListViewModel = ViewModelProviders.of(this).get(ShoppingListsViewModel.class);
+    List<String> datesAsKey = new ArrayList<>();
+    listOfShoppingListViewModel.getAllShoppingLists().observe(this, shoppingLists -> {
+      adapter.setShoppingLists(shoppingLists);
+
+      for (DataSnapshot date : shoppingLists.getChildren()) {
+        datesAsKey.add(date.getKey());
+      }
+
+//      potrzebne do onclicklistenera
+//      listOfShoppingLists.addAll(datesAsKey);
+    });
   }
 
   @Override
