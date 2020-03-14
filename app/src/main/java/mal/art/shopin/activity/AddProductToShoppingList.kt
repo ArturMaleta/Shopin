@@ -17,12 +17,9 @@ import mal.art.shopin.model.ProductUnitEnum
 
 class AddProductToShoppingList : AppCompatActivity() {
 
-
-
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_add_product_to_shopping_list)
-
 
     val productNameTv = findViewById<TextView>(R.id.to_shopping_list_product_name)
     val productQuantityEt = findViewById<EditText>(R.id.to_shopping_list_product_quantity)

@@ -38,7 +38,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
   private OnAddProductListener onAddProductListener;
 
-  // nie przekazuj contextu w konstruktorze. znajdź jak to zrobić
+  // TODO nie przekazuj contextu w konstruktorze. znajdź jak to zrobić
   public ProductListAdapter(Context context, OnAddProductListener onAddProductListener) {
     inflater = LayoutInflater.from(context);
     this.onAddProductListener = onAddProductListener;
