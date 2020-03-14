@@ -27,4 +27,5 @@
   <string name="empty_field">PODAJ DANE PRODUKTU</string>
   <string name="add_product_spinner_prompt">Wybierz kategorię produktu</string>
   <string name="add_product_to_shopping_list_quantity_hint">liczba</string>
+  <string name="no_shopping_list_available">NO SHOPPING LISTS</string>
 </resources>
