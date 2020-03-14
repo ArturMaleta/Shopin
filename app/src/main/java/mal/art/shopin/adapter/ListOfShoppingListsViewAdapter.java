@@ -45,7 +45,7 @@ public class ListOfShoppingListsViewAdapter extends RecyclerView.Adapter<ListOfS
       String currShoppingList = shoppingLists.get(position);
       holder.shoppingListName_txtView.setText(currShoppingList);
     } else {
-      holder.shoppingListName_txtView.setText("No shopping lists");
+      holder.shoppingListName_txtView.setText(R.string.no_shopping_list_available);
     }
   }
 
@@ -60,7 +60,7 @@ public class ListOfShoppingListsViewAdapter extends RecyclerView.Adapter<ListOfS
   @Override
   public int getItemCount() {
     if (shoppingLists != null) {
-      return (int) shoppingLists.size();
+      return shoppingLists.size();
     } else {
       return 0;
     }
