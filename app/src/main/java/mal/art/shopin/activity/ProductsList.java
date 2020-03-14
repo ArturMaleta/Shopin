@@ -41,7 +41,7 @@ public class ProductsList extends AppCompatActivity implements ProductListAdapte
     ProductViewModel productViewModel = ViewModelProviders.of(this).get(ProductViewModel.class);
     productViewModel.getAllProducts().observe(this, products -> {
       adapter.setProducts(products);
-      productsList.addAll(products);
+//      productsList.addAll(products);
     });
   }
 
@@ -77,8 +77,9 @@ public class ProductsList extends AppCompatActivity implements ProductListAdapte
       String productCategory = data.getStringExtra("productCategory");
       int productQuantity = Integer.valueOf(data.getStringExtra("productQuantity"));
       String productUnit = data.getStringExtra("productUnit");
+      String shoppingStatus = "pending";
 
-      ProductRepository.insertToShoppingList(productName, productCategory, productQuantity, productUnit);
+      ProductRepository.insertToShoppingList(productName, productCategory, productQuantity, productUnit, shoppingStatus);
 
       Log.d("PRODUKT ZAPISANY DO FB", productName + " " + productQuantity + " " + productUnit);
     }
