@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
@@ -30,10 +29,6 @@ public class ProductsList extends AppCompatActivity implements ProductListAdapte
     setContentView(R.layout.activity_products_list);
     RecyclerView recyclerView = findViewById(R.id.product_list_recycler_view);
 
-    // should be done during graphic design
-    ImageView opacityToBackgroundImage = findViewById(R.id.opacity_background_image);
-    opacityToBackgroundImage.setImageAlpha(80);
-
     final ProductListAdapter adapter = new ProductListAdapter(this, this);
     recyclerView.setAdapter(adapter);
     recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -41,7 +36,7 @@ public class ProductsList extends AppCompatActivity implements ProductListAdapte
     ProductViewModel productViewModel = ViewModelProviders.of(this).get(ProductViewModel.class);
     productViewModel.getAllProducts().observe(this, products -> {
       adapter.setProducts(products);
-//      productsList.addAll(products);
+      productsList.addAll(products);
     });
   }
 

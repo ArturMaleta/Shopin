@@ -14,15 +14,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea5c9358-d343-4508-acfb-924e5798200e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/ShoppingList.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/adapter/ListOfShoppingListsViewAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/ForgotPassword.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/ForgotPassword.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/Login.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/Login.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/MainScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/ProductsList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/ProductsList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/RegisterUser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/RegisterUser.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/ShoppingList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/adapter/ListOfShoppingListsViewAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_forgot_password.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_forgot_password.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main_screen.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_products_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_products_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register_user.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_shopping_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_shopping_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_of_shopping_lists_recyclerview_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_of_shopping_lists_recyclerview_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/products_recyclerview_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/products_recyclerview_item.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -335,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584229935670</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Read set of shopping lists from Firebase">
+      <created>1584230258044</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1584230258044</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -360,14 +384,15 @@
     <MESSAGE value="Added logic to send password reset activity" />
     <MESSAGE value="Saving to Firebase Database logic added.&#10;And some small refactor/stylish changes." />
     <MESSAGE value="Merge branch 'master' of https://github.com/ArturMaleta/Shopin&#10;&#10;# Conflicts:&#10;#&#9;app/src/main/java/mal/art/shopin/database/FirebaseQueryLiveData.kt&#10;#&#9;app/src/main/java/mal/art/shopin/viewModel/ShoppingListsViewModel.java&#10;#&#9;app/src/main/res/layout/list_of_shopping_lists_recyclerview_item.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/ArturMaleta/Shopin&#10;&#10;# Conflicts:&#10;#&#9;app/src/main/java/mal/art/shopin/database/FirebaseQueryLiveData.kt&#10;#&#9;app/src/main/java/mal/art/shopin/viewModel/ShoppingListsViewModel.java&#10;#&#9;app/src/main/res/layout/list_of_shopping_lists_recyclerview_item.xml" />
+    <MESSAGE value="Read set of shopping lists from Firebase" />
+    <option name="LAST_COMMIT_MESSAGE" value="Read set of shopping lists from Firebase" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/ProductsList.java</url>
-          <line>42</line>
+          <line>37</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
