@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 import mal.art.shopin.R;
@@ -15,8 +14,6 @@ import mal.art.shopin.viewModel.ProductViewModel;
 public class MainScreen extends AppCompatActivity {
 
   private static final int NEW_PRODUCT_ACTIVITY_REQUEST_CODE = 1;
-
-  private ImageView opacityToBackgroundImage;
 
   private Button goToShoppingList;
 
@@ -30,10 +27,6 @@ public class MainScreen extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main_screen);
-
-    // później graficznie ogarnę tę przezroczystość, żeby tylko zdjęcie ładować, a nie jeszcze ustawiać mu opacity
-    opacityToBackgroundImage = findViewById(R.id.opacity_background_image);
-    opacityToBackgroundImage.setImageAlpha(80);
 
     goToShoppingList = findViewById(R.id.goToShoppingList_btn);
     goToShoppingList.setOnClickListener(v -> {

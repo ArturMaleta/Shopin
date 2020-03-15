@@ -5,7 +5,6 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -16,10 +15,6 @@ class ForgotPassword : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_forgot_password)
-
-    // później graficznie ogarnę tę przezroczystość, żeby tylko zdjęcie ładować, a nie jeszcze ustawiać mu opacity
-    val opacityToBackgroundImage: ImageView = findViewById(R.id.opacity_background_image)
-    opacityToBackgroundImage.imageAlpha = 80
 
     val emailEt = findViewById<EditText>(R.id.forgot_password_email_et)
     val sendBtn = findViewById<Button>(R.id.send_reset_passeword_btn)

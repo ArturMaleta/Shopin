@@ -7,7 +7,6 @@ import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -18,10 +17,6 @@ class RegisterUser : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_register_user)
-
-    // później graficznie ogarnę tę przezroczystość, żeby tylko zdjęcie ładować, a nie jeszcze ustawiać mu opacity
-    val opacityToBackgroundImage: ImageView = findViewById(R.id.opacity_background_image)
-    opacityToBackgroundImage.imageAlpha = 80
 
     val newUserEmail = findViewById<EditText>(R.id.new_user_username_et)
     val newUserPassword = findViewById<EditText>(R.id.new_user_password_et)
