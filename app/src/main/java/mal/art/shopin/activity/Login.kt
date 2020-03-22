@@ -21,6 +21,22 @@ class Login : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_login)
 
+    checkIfUserIsLoggedIn()
+  }
+
+  private fun checkIfUserIsLoggedIn() {
+    val user = FirebaseAuth.getInstance().currentUser
+
+    if (user != null) {
+      Toast.makeText(this, "Zalogowano automatycznie", Toast.LENGTH_SHORT).show()
+      startActivity(Intent(this, MainScreen::class.java))
+      finish()
+    } else {
+      initializeLoginScreen()
+    }
+  }
+
+  private fun initializeLoginScreen() {
     val userNameEt = findViewById<EditText>(R.id.username_et)
     val passwordEt = findViewById<EditText>(R.id.password_et)
     passwordEt.transformationMethod = PasswordTransformationMethod.getInstance()

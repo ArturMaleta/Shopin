@@ -19,7 +19,6 @@ import java.util.ArrayList
 
 class ShoppingList : AppCompatActivity(), OnListNameClickListener {
 
-
   private var listOfShoppingLists: MutableList<String> = ArrayList()
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,15 +27,12 @@ class ShoppingList : AppCompatActivity(), OnListNameClickListener {
     setContentView(R.layout.activity_shopping_list)
     val recyclerView = findViewById<RecyclerView>(R.id.list_of_shopping_list_recycler_view)
 
-    // should be done during graphic design
-
     val adapter = ListOfShoppingListsViewAdapter(this, this)
     recyclerView.adapter = adapter
     recyclerView.layoutManager = LinearLayoutManager(this)
 
     val listOfShoppingListViewModel = ViewModelProviders.of(this).get(ShoppingListsViewModel::class.java)
 
-    val datesAsKey: MutableList<String?> = ArrayList()
     listOfShoppingListViewModel.allShoppingLists.observe(this, Observer { shoppingLists: DataSnapshot ->
       adapter.setShoppingLists(shoppingLists)
       for (date in shoppingLists.children) {
