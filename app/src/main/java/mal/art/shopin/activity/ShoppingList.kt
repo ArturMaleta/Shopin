@@ -3,7 +3,6 @@ package mal.art.shopin.activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -39,12 +38,6 @@ class ShoppingList : AppCompatActivity(), OnListNameClickListener {
         date.key?.let { listOfShoppingLists.add(it) }
       }
     })
-  }
-
-  override fun onStart() {
-    super.onStart()
-    val overlay = findViewById<View>(R.id.shopping_list_layout)
-    overlay.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_FULLSCREEN
   }
 
   fun goToShoppingList(view: View) {

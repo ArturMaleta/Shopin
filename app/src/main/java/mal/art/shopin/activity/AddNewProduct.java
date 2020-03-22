@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -57,16 +56,5 @@ public class AddNewProduct extends AppCompatActivity {
       }
       finish();
     });
-  }
-
-  @Override
-  protected void onStart() {
-    super.onStart();
-    View overlay = findViewById(R.id.add_new_product_layout);
-    overlay.setSystemUiVisibility(
-      View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
-        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY |
-        View.SYSTEM_UI_FLAG_FULLSCREEN
-    );
   }
 }

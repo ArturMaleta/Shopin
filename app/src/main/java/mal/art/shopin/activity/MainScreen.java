@@ -64,6 +64,10 @@ public class MainScreen extends AppCompatActivity {
   protected void onStart() {
     super.onStart();
     View overlay = findViewById(R.id.main_screen_layout);
-    overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN);
+//    overlay.setSystemUiVisibility(
+//      View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+//      | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+//      | View.SYSTEM_UI_FLAG_FULLSCREEN
+//    );
   }
 }

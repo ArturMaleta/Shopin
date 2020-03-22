@@ -40,13 +40,6 @@ public class ProductsList extends AppCompatActivity implements ProductListAdapte
     });
   }
 
-  @Override
-  protected void onStart() {
-    super.onStart();
-    View overlay = findViewById(R.id.product_list_layout);
-    overlay.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_FULLSCREEN);
-  }
-
   public void goToProductsList(View view) {
     Intent productsListIntent = new Intent(view.getContext(), ProductsList.class);
     view.getContext().startActivity(productsListIntent);

@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.DisplayMetrics
-import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -79,14 +78,5 @@ class AddProductToShoppingList : AppCompatActivity() {
       ProductUnitEnum.values()
     )
     productUnitSp.adapter = adapter
-  }
-
-  override fun onStart() {
-    super.onStart()
-    window.decorView.systemUiVisibility = (
-      View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
-        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or
-        View.SYSTEM_UI_FLAG_FULLSCREEN
-      )
   }
 }

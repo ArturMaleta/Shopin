@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.text.method.PasswordTransformationMethod
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -73,12 +72,6 @@ class Login : AppCompatActivity() {
         Toast.makeText(baseContext, R.string.login_failed_err, Toast.LENGTH_SHORT).show()
       }
     }
-  }
-
-  override fun onStart() {
-    super.onStart()
-    val overlay = findViewById<View>(R.id.login_main_layout)
-    overlay.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_FULLSCREEN
   }
 
   private fun goToRegisterActivity() {
