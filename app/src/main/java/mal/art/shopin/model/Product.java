@@ -46,7 +46,8 @@ public class Product implements Parcelable {
   }
 
   // to Firebase
-  public Product(String productCategory, int quantity, String productUnit, String shoppingStatus) {
+  public Product(String productName, String productCategory, int quantity, String productUnit, String shoppingStatus) {
+    this.productName = productName;
     this.productCategory = productCategory;
     this.quantity = quantity;
     this.productUnit = productUnit;

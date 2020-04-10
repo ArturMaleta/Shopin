@@ -11,11 +11,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import mal.art.shopin.R
 
-class RegisterUser : AppCompatActivity() {
+class RegisterUser : AppCompatActivity(R.layout.activity_register_user) {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_register_user)
 
     val newUserEmail = findViewById<EditText>(R.id.new_user_username_et)
     val newUserPassword = findViewById<EditText>(R.id.new_user_password_et)

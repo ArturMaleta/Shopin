@@ -17,7 +17,7 @@
     <activity android:name=".activity.AddProductToShoppingList" />
     <activity android:name=".activity.AddNewProduct" />
     <activity android:name=".activity.ProductsList" />
-    <activity android:name=".activity.ShoppingList" />
+    <activity android:name=".activity.ListOfShoppingLists" />
     <activity android:name=".activity.MainScreen" />
     <activity android:name=".activity.Login">
       <intent-filter>

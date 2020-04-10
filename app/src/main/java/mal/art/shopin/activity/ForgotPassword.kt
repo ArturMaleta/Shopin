@@ -9,11 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import mal.art.shopin.R
 
-class ForgotPassword : AppCompatActivity() {
+class ForgotPassword : AppCompatActivity(R.layout.activity_forgot_password) {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_forgot_password)
 
     val emailEt = findViewById<EditText>(R.id.forgot_password_email_et)
     val sendBtn = findViewById<Button>(R.id.send_reset_passeword_btn)

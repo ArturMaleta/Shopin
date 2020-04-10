@@ -32,7 +32,6 @@ class AddProductToShoppingList : AppCompatActivity() {
     showPopupWindow()
     loadSpinnerValues(productUnitSp)
 
-    // sprawdź jakie wyniki będą miały pozostałe funckje zakresowe w tym przypadku
     addProductBtn.setOnClickListener {
       val productQuantity = productQuantityEt.text.toString()
       val productUnit = productUnitSp.selectedItem.toString()
@@ -67,12 +66,8 @@ class AddProductToShoppingList : AppCompatActivity() {
     )
   }
 
-  private fun loadProductName(productNameTv: TextView) {
-    productNameTv.text = intent.getStringExtra("productNameToAdd")
-  }
-
   private fun loadSpinnerValues(productUnitSp: Spinner) {
-    val adapter = ArrayAdapter<ProductUnitEnum>(
+    val adapter = ArrayAdapter(
       this,
       android.R.layout.simple_list_item_1,
       ProductUnitEnum.values()

@@ -12,13 +12,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import mal.art.shopin.R
 
-class Login : AppCompatActivity() {
+class Login : AppCompatActivity(R.layout.activity_login) {
 
   private lateinit var auth: FirebaseAuth
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_login)
 
     checkIfUserIsLoggedIn()
   }

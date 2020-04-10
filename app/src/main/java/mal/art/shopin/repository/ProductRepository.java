@@ -1,7 +1,6 @@
 package mal.art.shopin.repository;
 
 import android.app.Application;
-import android.util.Log;
 import androidx.lifecycle.LiveData;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
@@ -24,6 +23,8 @@ public class ProductRepository {
 
   private final FirebaseQueryLiveData shoppingLists = new FirebaseQueryLiveData(fireDatabase);
 
+  private FirebaseQueryLiveData shoppingList = null;
+
   public ProductRepository(Application application) {
     ProductRoomDatabase db = ProductRoomDatabase.getInstance(application);
     productDao = db.productsDAO();
@@ -39,19 +40,17 @@ public class ProductRepository {
       productDao.insertProduct(product));
   }
 
-  public static void insertToShoppingList(
-    String productName,
-    String productCategory,
-    int productQuantity,
-    String productUnit,
-    String shoppingStatus
-  ) {
+  public static void insertToShoppingList(Product product) {
+    fireDatabase.child(getDatetime()).child(product.getProductName()).setValue(product);
+  }
 
-    Product product =
-      new Product(productCategory, productQuantity, productUnit, shoppingStatus);
-    fireDatabase.child(getDatetime()).child(productName).setValue(product);
+  public LiveData<DataSnapshot> getListOfShoppingListsLiveData() {
+    return shoppingLists;
+  }
 
-    Log.d("DUPA", product.toString());
+  public LiveData<DataSnapshot> getShoppingListLiveData(String shoppingListName) {
+    shoppingList = new FirebaseQueryLiveData(fireDatabase.child(shoppingListName));
+    return shoppingList;
   }
 
   private static String getDatetime() {

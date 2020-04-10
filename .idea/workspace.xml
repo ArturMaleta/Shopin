@@ -14,6 +14,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea5c9358-d343-4508-acfb-924e5798200e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_activity_activity_1_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_resources_1_1_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_collection_collection_1_1_0_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_1_3_0_beta01_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_ktx_1_3_0_beta01_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_savedstate_savedstate_1_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_3_70_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_common_1_3_70_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/AddNewProduct.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/MainScreen.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/ProductsList.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/adapter/ShoppingListViewAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/database/ProductsDAO.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/fragment/ShoppingListFragment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/viewModel/ListOfShoppingListsViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/viewModel/ProductViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/viewModel/ShoppingListViewModel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_shopping_list.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/products_shopping_list_recyclerview_item.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -24,15 +43,43 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_collection_collection_1_0_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_1_3_0_alpha02_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_core_core_ktx_1_3_0_alpha02_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_fragment_fragment_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_fragment_fragment_1_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_1_0_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_1_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_animated_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_vectordrawable_vectordrawable_animated_1_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_3_61_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_common_1_3_61_jar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/AddNewProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/AddNewProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/AddNewProduct.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/AddProductToShoppingList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/AddProductToShoppingList.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/ForgotPassword.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/ForgotPassword.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/Login.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/Login.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/MainScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/ProductsList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/ProductsList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/MainScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/ProductsList.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/RegisterUser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/RegisterUser.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/ShoppingList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/ShoppingList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/ShoppingList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/activity/ListOfShoppingLists.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/database/ProductRoomDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/database/ProductRoomDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/database/ProductsDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/viewModel/ProductViewModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/mal/art/shopin/viewModel/ShoppingListsViewModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_new_product.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_new_product.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_product_to_shopping_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_product_to_shopping_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_shopping_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_shopping_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/shopping_list_recyclerview_item.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimensions.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,9 +135,9 @@
         <option value="Enum" />
         <option value="resourceFile" />
         <option value="Kotlin Class" />
+        <option value="layoutResourceFile" />
         <option value="Kotlin File" />
         <option value="Class" />
-        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -119,7 +166,7 @@
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="PsdUISettings">
     <option name="MODULE_TAB" value="Default Config" />
@@ -127,6 +174,9 @@
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="mal.art.shopin.Fragment" />
+    </key>
     <key name="android.template.parentActivityClass">
       <recent name="" />
     </key>
@@ -359,7 +409,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584914205942</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Show bottom navigation bar">
+      <created>1584914916333</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1584914916333</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -386,6 +443,7 @@
     <MESSAGE value="Merge branch 'master' of https://github.com/ArturMaleta/Shopin&#10;&#10;# Conflicts:&#10;#&#9;app/src/main/java/mal/art/shopin/database/FirebaseQueryLiveData.kt&#10;#&#9;app/src/main/java/mal/art/shopin/viewModel/ShoppingListsViewModel.java&#10;#&#9;app/src/main/res/layout/list_of_shopping_lists_recyclerview_item.xml" />
     <MESSAGE value="Read set of shopping lists from Firebase" />
     <MESSAGE value="Today's change:&#10;&#10;1/ Automatic log in when user already exist&#10;2/ styling after refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Today's change:&#10;&#10;1/ Automatic log in when user already exist&#10;2/ styling after refactor" />
+    <MESSAGE value="Show bottom navigation bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Show bottom navigation bar" />
   </component>
 </project>
