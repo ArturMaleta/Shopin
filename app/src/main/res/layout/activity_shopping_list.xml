@@ -33,9 +33,17 @@
       app:layout_constraintTop_toTopOf="parent" />
 
   <LinearLayout
-      android:id="@+id/myFragmentLinearLayout"
+      android:id="@+id/shopping_list_fragment_container"
       android:layout_height="match_parent"
       android:layout_width="match_parent"
+      android:orientation="vertical">
+  </LinearLayout>
+
+  <LinearLayout
+      android:id="@+id/change_shopping_list_name_fragment_container"
+      android:layout_height="match_parent"
+      android:layout_width="match_parent"
+      android:gravity="center"
       android:orientation="vertical">
   </LinearLayout>
 

@@ -14,6 +14,7 @@ import com.google.firebase.database.DataSnapshot
 import mal.art.shopin.R
 import mal.art.shopin.adapter.ListOfShoppingListsViewAdapter
 import mal.art.shopin.adapter.ListOfShoppingListsViewAdapter.OnListNameClickListener
+import mal.art.shopin.fragment.ChangeShoppingListNameFragment
 import mal.art.shopin.fragment.ShoppingListFragment
 import mal.art.shopin.viewModel.ListOfShoppingListsViewModel
 import java.util.ArrayList
@@ -59,7 +60,33 @@ class ListOfShoppingLists : AppCompatActivity(R.layout.activity_shopping_list), 
     fragment.arguments = bundle
 
     val fragmentTransaction = fragmentManager.beginTransaction()
-    fragmentTransaction.replace(R.id.myFragmentLinearLayout, fragment)
+    val prev = supportFragmentManager.findFragmentByTag(ShoppingListFragment.TAG)
+    if (prev != null) {
+      fragmentTransaction.remove(prev)
+    }
+
+    fragmentTransaction.replace(R.id.shopping_list_fragment_container, fragment, ShoppingListFragment.TAG)
+    fragmentTransaction.addToBackStack(null)
+    fragmentTransaction.commit()
+  }
+
+  override fun onLongPress(position: Int) {
+    val listName = listOfShoppingLists[position]
+    Toast.makeText(this, "longpress obsłużony", Toast.LENGTH_SHORT).show()
+
+    val bundle = Bundle()
+    bundle.putString("listName", listName)
+
+    val fragment = ChangeShoppingListNameFragment()
+    fragment.arguments = bundle
+
+    val fragmentTransaction = fragmentManager.beginTransaction()
+    val prev = supportFragmentManager.findFragmentByTag(ChangeShoppingListNameFragment.TAG)
+    if (prev != null) {
+      fragmentTransaction.remove(prev)
+    }
+
+    fragmentTransaction.replace(R.id.change_shopping_list_name_fragment_container, fragment, ChangeShoppingListNameFragment.TAG)
     fragmentTransaction.addToBackStack(null)
     fragmentTransaction.commit()
   }

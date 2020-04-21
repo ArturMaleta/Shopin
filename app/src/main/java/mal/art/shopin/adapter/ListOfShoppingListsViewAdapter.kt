@@ -13,22 +13,22 @@ import mal.art.shopin.adapter.ListOfShoppingListsViewAdapter.ListOfShoppingLists
 import java.util.ArrayList
 
 // TODO nie przekazuj contextu w konstruktorze. znajdź jak to zrobić
-class ListOfShoppingListsViewAdapter(
-  context: Context?,
-  private val onListNameClickListener: OnListNameClickListener
-) : RecyclerView.Adapter<ListOfShoppingListsViewHolder>() {
+class ListOfShoppingListsViewAdapter(context: Context?, private val onListNameClickListener: OnListNameClickListener) : RecyclerView.Adapter<ListOfShoppingListsViewHolder>() {
 
-  inner class ListOfShoppingListsViewHolder(
-    view: View,
-    private var onListNameClickListener: OnListNameClickListener
-  ) : ViewHolder(view), View.OnClickListener {
+  inner class ListOfShoppingListsViewHolder(view: View, private var onListNameClickListener: OnListNameClickListener) : ViewHolder(view), View.OnClickListener, View.OnLongClickListener {
     var shoppingListName_txtView: TextView = view.findViewById(R.id.shopping_list_name_txtView)
+
     override fun onClick(v: View) {
       onListNameClickListener.onListClick(adapterPosition)
     }
 
+    override fun onLongClick(v: View?): Boolean {
+      onListNameClickListener.onLongPress(adapterPosition)
+      return true
+    }
+
     init {
-      view.setOnClickListener(this)
+      initializeOnClickListeners(view, this)
     }
   }
 
@@ -36,8 +36,7 @@ class ListOfShoppingListsViewAdapter(
   private val shoppingLists: MutableList<String?>? = ArrayList()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListOfShoppingListsViewHolder {
-    val v = inflater.inflate(R.layout.list_of_shopping_lists_recyclerview_item, parent, false)
-    return ListOfShoppingListsViewHolder(v, onListNameClickListener)
+    return ListOfShoppingListsViewHolder(inflater.inflate(R.layout.list_of_shopping_lists_recyclerview_item, parent, false), onListNameClickListener)
   }
 
   override fun onBindViewHolder(holder: ListOfShoppingListsViewHolder, position: Int) {
@@ -61,8 +60,14 @@ class ListOfShoppingListsViewAdapter(
     return shoppingLists?.size ?: 0
   }
 
+  private fun initializeOnClickListeners(v: View, vh: ListOfShoppingListsViewHolder) {
+    v.setOnLongClickListener(vh)
+    v.setOnClickListener(vh)
+  }
+
   interface OnListNameClickListener {
     fun onListClick(position: Int)
+    fun onLongPress(position: Int)
   }
 
 }

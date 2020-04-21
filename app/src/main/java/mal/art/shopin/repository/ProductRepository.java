@@ -15,7 +15,7 @@ import mal.art.shopin.model.Product;
 
 public class ProductRepository {
 
-  private static final DatabaseReference fireDatabase = FirebaseDatabaseHelper.INSTANCE.getDbRef();
+  private static final DatabaseReference fireDatabase = FirebaseDatabaseHelper.INSTANCE.getReference();
 
   private ProductsDAO productDao;
 

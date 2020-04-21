@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:padding="20dp"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+  <EditText
+      android:id="@+id/shopping_list_name_edit_text"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@android:color/white"
+      android:layout_marginBottom="20dp"
+      android:layout_marginTop="20dp"
+      android:gravity="center"
+      android:text="DUPA" />
+
+  <LinearLayout
+      android:id="@+id/login_register_buttons_layout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/login_btn"
+        style="@style/AppTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_extra_small"
+        android:layout_weight="1"
+        android:background="@drawable/btn"
+        android:text="Zmień" />
+
+    <Button
+        android:id="@+id/go_to_register_btn"
+        style="@style/AppTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_extra_small"
+        android:layout_weight="1"
+        android:background="@drawable/btn"
+        android:text="Anuluj" />
+  </LinearLayout>
+
+</LinearLayout>

@@ -43,7 +43,10 @@ class ShoppingListFragment : Fragment() {
       }
     })
 
-
     super.onViewCreated(view, savedInstanceState)
+  }
+
+  companion object {
+    const val TAG = "SHOPPING_LIST_TAG"
   }
 }
