@@ -15,8 +15,7 @@
       android:background="@android:color/white"
       android:layout_marginBottom="20dp"
       android:layout_marginTop="20dp"
-      android:gravity="center"
-      android:text="DUPA" />
+      android:gravity="center" />
 
   <LinearLayout
       android:id="@+id/login_register_buttons_layout"
@@ -25,24 +24,24 @@
       android:orientation="horizontal">
 
     <Button
-        android:id="@+id/login_btn"
+        android:id="@+id/change_shopping_list_name_accept_btn"
         style="@style/AppTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_extra_small"
         android:layout_weight="1"
         android:background="@drawable/btn"
-        android:text="Zmień" />
+        android:text="@string/change_shopping_list_name_accept_btn" />
 
     <Button
-        android:id="@+id/go_to_register_btn"
+        android:id="@+id/change_shopping_list_name_cancel_btn"
         style="@style/AppTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_extra_small"
         android:layout_weight="1"
         android:background="@drawable/btn"
-        android:text="Anuluj" />
+        android:text="@string/change_shopping_list_name_cancel_btn" />
   </LinearLayout>
 
 </LinearLayout>

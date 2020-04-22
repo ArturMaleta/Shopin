@@ -30,4 +30,6 @@
   <string name="no_shopping_list_available">NO SHOPPING LISTS</string>
   <string name="shopping_list_no_products">No products in shopping list</string>
   <string name="default_shopping_status">pending</string>
+  <string name="change_shopping_list_name_accept_btn">ZMIEŃ</string>
+  <string name="change_shopping_list_name_cancel_btn">ANULUJ</string>
 </resources>
