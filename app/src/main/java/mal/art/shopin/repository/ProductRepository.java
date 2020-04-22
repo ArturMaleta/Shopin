@@ -44,6 +44,11 @@ public class ProductRepository {
     fireDatabase.child(getDatetime()).child(product.getProductName()).setValue(product);
   }
 
+  public static void changeShoppingListName(String oldName, String newName) {
+    String key = fireDatabase.child(oldName).getKey();
+    fireDatabase.child(oldName).setValue(newName);
+  }
+
   public LiveData<DataSnapshot> getListOfShoppingListsLiveData() {
     return shoppingLists;
   }
@@ -56,12 +61,7 @@ public class ProductRepository {
   private static String getDatetime() {
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
     Calendar calendar = Calendar.getInstance();
-    String datetime = formatter.format(calendar.getTime());
 
-    return datetime;
-  }
-
-  public LiveData<DataSnapshot> getDataSnapshotLiveData() {
-    return shoppingLists;
+    return formatter.format(calendar.getTime());
   }
 }
