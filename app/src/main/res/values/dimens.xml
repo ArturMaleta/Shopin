@@ -11,8 +11,8 @@
     <dimen name="margin_standard">24dp</dimen>
     <dimen name="margin_small">6dp</dimen>
     <dimen name="margin_extra_small">3dp</dimen>
-    <dimen name="popup_window_width_multiplier">0.8</dimen>
-    <dimen name="popup_window_height_multiplier">0.35</dimen>
     <dimen name="small_padding">8dp</dimen>
     <dimen name="big_padding">20dp</dimen>
+    <dimen name="popup_window_height">1000dp</dimen>
+    <dimen name="popup_window_width">1000dp</dimen>
 </resources>

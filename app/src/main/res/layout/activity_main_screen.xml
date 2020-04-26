@@ -25,22 +25,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/btn"
         android:text="@string/my_list"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/createShoppingList_btn"
-        style="@style/AppTheme"
-        android:layout_width="331dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/btn"
-        android:text="@string/create_list"
-        app:layout_constraintBottom_toTopOf="@+id/goToShoppingList_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -49,11 +37,16 @@
         style="@style/AppTheme"
         android:layout_width="331dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="220dp"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/btn"
         android:text="@string/add_product"
-        app:layout_constraintBottom_toTopOf="@+id/createShoppingList_btn"
+        app:layout_constraintBottom_toTopOf="@+id/goToShoppingList_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/add_new_product_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
