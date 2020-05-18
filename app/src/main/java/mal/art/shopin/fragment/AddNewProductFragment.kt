@@ -1,11 +1,6 @@
 package mal.art.shopin.fragment
 
-import android.app.Activity
-import android.app.AlertDialog
-import android.app.Dialog
-import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,16 +10,12 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
-import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProviders
 import mal.art.shopin.R
-import mal.art.shopin.activity.AddNewProduct
-import mal.art.shopin.activity.MainScreen
 import mal.art.shopin.model.Product
 import mal.art.shopin.model.ProductCategoryEnum
 import mal.art.shopin.viewModel.ProductViewModel
-import java.util.IllegalFormatWidthException
 
 class AddNewProductFragment : DialogFragment() {
   private var screenWidth: Int = 0

@@ -16,14 +16,9 @@ import mal.art.shopin.model.Product
 import mal.art.shopin.viewModel.ShoppingListViewModel
 import java.util.ArrayList
 
-class ShoppingListFragment : Fragment() {
+class ShoppingListFragment : Fragment(R.layout.fragment_shopping_list) {
 
   private var listOfProducts: MutableList<Product> = ArrayList()
-
-  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-    return inflater.inflate(R.layout.fragment_shopping_list, container, false)
-  }
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     val listName: String = arguments!!.getString("listName")!!

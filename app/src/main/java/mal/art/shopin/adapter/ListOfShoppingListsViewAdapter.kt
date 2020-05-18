@@ -15,20 +15,15 @@ import java.util.ArrayList
 // TODO nie przekazuj contextu w konstruktorze. znajdź jak to zrobić
 class ListOfShoppingListsViewAdapter(context: Context?, private val onListNameClickListener: OnListNameClickListener) : RecyclerView.Adapter<ListOfShoppingListsViewHolder>() {
 
-  inner class ListOfShoppingListsViewHolder(view: View, private var onListNameClickListener: OnListNameClickListener) : ViewHolder(view), View.OnClickListener, View.OnLongClickListener {
+  inner class ListOfShoppingListsViewHolder(view: View, private var onListNameClickListener: OnListNameClickListener) : ViewHolder(view), View.OnClickListener {
     var shoppingListName_txtView: TextView = view.findViewById(R.id.shopping_list_name_txtView)
 
     override fun onClick(v: View) {
       onListNameClickListener.onListClick(adapterPosition)
     }
 
-    override fun onLongClick(v: View?): Boolean {
-      onListNameClickListener.onLongPress(adapterPosition)
-      return true
-    }
-
     init {
-      initializeOnClickListeners(view, this)
+      initializeOnClickListener(view, this)
     }
   }
 
@@ -60,14 +55,12 @@ class ListOfShoppingListsViewAdapter(context: Context?, private val onListNameCl
     return shoppingLists?.size ?: 0
   }
 
-  private fun initializeOnClickListeners(v: View, vh: ListOfShoppingListsViewHolder) {
-    v.setOnLongClickListener(vh)
+  private fun initializeOnClickListener(v: View, vh: ListOfShoppingListsViewHolder) {
     v.setOnClickListener(vh)
   }
 
   interface OnListNameClickListener {
     fun onListClick(position: Int)
-    fun onLongPress(position: Int)
   }
 
 }
