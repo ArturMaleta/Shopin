@@ -37,8 +37,17 @@
 
   <LinearLayout
       android:id="@+id/shopping_list_fragment_container"
+      android:id="@+id/change_shopping_list_name_fragment_container"
+      android:layout_height="match_parent"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
+      android:orientation="vertical">
+  </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+      android:id="@+id/shopping_list_fragment_container"
+      android:layout_height="match_parent"
+      android:layout_width="match_parent"
       android:orientation="vertical">
   </LinearLayout>
 
