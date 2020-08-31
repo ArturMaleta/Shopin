@@ -13,23 +13,32 @@ import mal.art.shopin.adapter.ShoppingListViewAdapter.ShoppingListViewHolder
 import mal.art.shopin.model.Product
 
 class ShoppingListViewAdapter (
-  context: Context?
+  context: Context?,
+  private val onProductClickListener: OnProductClickListener
 ) : RecyclerView.Adapter<ShoppingListViewHolder>() {
 
   inner class ShoppingListViewHolder (
-    view: View
-  ) : ViewHolder(view) {
+    view: View,
+    private val onProductClickListener: OnProductClickListener
+  ) : ViewHolder(view), View.OnClickListener {
     var productNameTv : TextView = view.findViewById(R.id.shopping_list_product_name_txtView)
     var productQuantity : TextView = view.findViewById(R.id.shopping_list_product_quantity_txtView)
     var productUnitTv : TextView = view.findViewById(R.id.shopping_list_product_unit_txtView)
+
+    override fun onClick(v: View?) {
+      onProductClickListener.onProductClick(adapterPosition)
+    }
+
+    init {
+      initializeOnClickListener(view, this)
+    }
   }
 
   private val inflater : LayoutInflater = LayoutInflater.from(context)
   private val shoppingList : MutableList<Product?>? = ArrayList()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingListViewHolder {
-    val v = inflater.inflate(R.layout.products_shopping_list_recyclerview_item, parent, false)
-    return ShoppingListViewHolder(v)
+    return ShoppingListViewHolder(inflater.inflate(R.layout.products_shopping_list_recyclerview_item, parent, false), onProductClickListener)
   }
 
   override fun onBindViewHolder(holder: ShoppingListViewHolder, position: Int) {
@@ -60,5 +69,13 @@ class ShoppingListViewAdapter (
 
   override fun getItemCount(): Int {
     return shoppingList?.size ?: 0
+  }
+
+  private fun initializeOnClickListener(v: View, vh: ShoppingListViewHolder) {
+    v.setOnClickListener(vh)
+  }
+
+  interface OnProductClickListener {
+    fun onProductClick(position: Int)
   }
 }

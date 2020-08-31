@@ -64,4 +64,12 @@ public class ProductRepository {
 
     return formatter.format(calendar.getTime());
   }
+
+  public void addShoppingListName(String name) {
+    fireDatabase.child(name).setValue(true);
+  }
+
+  public void addProductToParticularShoppingList(String shoppingListName, Product product) {
+    fireDatabase.child(shoppingListName).child(product.getProductName()).setValue(product);
+  }
 }

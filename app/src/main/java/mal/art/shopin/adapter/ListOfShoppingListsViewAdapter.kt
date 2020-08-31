@@ -13,9 +13,15 @@ import mal.art.shopin.adapter.ListOfShoppingListsViewAdapter.ListOfShoppingLists
 import java.util.ArrayList
 
 // TODO nie przekazuj contextu w konstruktorze. znajdź jak to zrobić
-class ListOfShoppingListsViewAdapter(context: Context?, private val onListNameClickListener: OnListNameClickListener) : RecyclerView.Adapter<ListOfShoppingListsViewHolder>() {
+class ListOfShoppingListsViewAdapter(
+  context: Context?,
+  private val onListNameClickListener: OnListNameClickListener
+) : RecyclerView.Adapter<ListOfShoppingListsViewHolder>() {
 
-  inner class ListOfShoppingListsViewHolder(view: View, private var onListNameClickListener: OnListNameClickListener) : ViewHolder(view), View.OnClickListener {
+  inner class ListOfShoppingListsViewHolder(
+    view: View,
+    private var onListNameClickListener: OnListNameClickListener
+  ) : ViewHolder(view), View.OnClickListener {
     var shoppingListName_txtView: TextView = view.findViewById(R.id.shopping_list_name_txtView)
 
     override fun onClick(v: View) {
@@ -44,9 +50,10 @@ class ListOfShoppingListsViewAdapter(context: Context?, private val onListNameCl
   }
 
   fun setShoppingLists(shoppingLists: DataSnapshot) {
+    this.shoppingLists!!.clear()
     for (temp in shoppingLists.children) {
       val date = temp.key
-      this.shoppingLists!!.add(date)
+      this.shoppingLists.add(date)
     }
     notifyDataSetChanged()
   }

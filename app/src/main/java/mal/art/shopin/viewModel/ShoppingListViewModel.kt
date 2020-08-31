@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.database.DataSnapshot
 import mal.art.shopin.database.FirebaseQueryLiveData
+import mal.art.shopin.model.Product
 import mal.art.shopin.repository.ProductRepository
 
 class ShoppingListViewModel(application: Application) : AndroidViewModel(application) {
@@ -14,5 +15,9 @@ class ShoppingListViewModel(application: Application) : AndroidViewModel(applica
 
   fun getShoppingList(shoppingListName: String) : LiveData<DataSnapshot>? {
     return repository.getShoppingListLiveData(shoppingListName)
+  }
+
+  fun addProductToShoppingList(listName: String, product: Product) {
+    repository.addProductToParticularShoppingList(listName, product)
   }
 }
