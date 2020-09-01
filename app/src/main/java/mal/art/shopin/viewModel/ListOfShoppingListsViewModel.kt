@@ -12,4 +12,8 @@ class ListOfShoppingListsViewModel(application: Application) : AndroidViewModel(
   fun getAllShoppingLists() : LiveData<DataSnapshot> {
     return repository.listOfShoppingListsLiveData
   }
+
+  fun insertShoppingList(name: String) {
+    repository.addShoppingListName(name)
+  }
 }

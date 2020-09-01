@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <LinearLayout
+      android:id="@+id/add_new_shopping_list_layout"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_margin="@dimen/popup_window_margin"
+      android:orientation="vertical"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+    <EditText
+        android:id="@+id/shopping_list_name_to_save"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/adding_product_name"
+        android:inputType="textAutoComplete"
+        android:padding="@dimen/small_padding"
+        android:textSize="@dimen/standard_font_size" />
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/popup_window_margin"
+        android:background="@drawable/btn"
+        android:text="@string/save" />
+  </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

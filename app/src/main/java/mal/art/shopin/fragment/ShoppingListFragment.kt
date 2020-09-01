@@ -1,36 +1,39 @@
 package mal.art.shopin.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.DataSnapshot
 import mal.art.shopin.R
 import mal.art.shopin.adapter.ShoppingListViewAdapter
+import mal.art.shopin.fragment.helper.changeFragment
 import mal.art.shopin.model.Product
 import mal.art.shopin.viewModel.ShoppingListViewModel
 import java.util.ArrayList
 
-class ShoppingListFragment : Fragment() {
+class ShoppingListFragment : Fragment(R.layout.fragment_shopping_list), ShoppingListViewAdapter.OnProductClickListener {
 
   private var listOfProducts: MutableList<Product> = ArrayList()
-
-  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-    return inflater.inflate(R.layout.fragment_shopping_list, container, false)
-  }
+  private lateinit var listName: String
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    val listName: String = arguments!!.getString("listName")!!
+    listName = arguments!!.getString("listName")!!
+    initializeViewModel()
+    initializeFAB()
 
-    val recyclerView = view.findViewById<RecyclerView>(R.id.shopping_list_recycler_view)
+    super.onViewCreated(view, savedInstanceState)
+  }
 
-    val adapter = ShoppingListViewAdapter(activity)
+  private fun initializeViewModel() {
+    val recyclerView = view!!.findViewById<RecyclerView>(R.id.shopping_list_recycler_view)
+
+    val adapter = ShoppingListViewAdapter(activity, this)
     recyclerView.adapter = adapter
     recyclerView.layoutManager = LinearLayoutManager(activity)
 
@@ -42,8 +45,32 @@ class ShoppingListFragment : Fragment() {
         date.getValue(Product::class.java)?.let { listOfProducts.add(it) }
       }
     })
+  }
 
-    super.onViewCreated(view, savedInstanceState)
+  private fun initializeFAB() {
+    val fab: View = activity?.findViewById(R.id.shopping_list_fab) ?: FloatingActionButton(context)
+    fab.setOnClickListener {
+      addProductToShoppingList()
+    }
+  }
+
+  private fun addProductToShoppingList() {
+    val bundle = Bundle()
+    bundle.putString("shoppingListName", listName)
+
+    val showProducts = ProductsListFragment()
+    showProducts.arguments = bundle
+
+    showProducts.changeFragment(
+      activity!!.supportFragmentManager,
+      R.id.shopping_list_fragment_container,
+      showProducts,
+      ProductsListFragment.TAG
+    )
+  }
+
+  override fun onProductClick(position: Int) {
+    Toast.makeText(activity, listOfProducts[position].productName, Toast.LENGTH_SHORT).show()
   }
 
   companion object {
