@@ -1,14 +1,19 @@
 package mal.art.shopin.repository;
 
 import android.app.Application;
+import android.widget.Toast;
 import androidx.lifecycle.LiveData;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.core.FirestoreClient;
+import com.google.firebase.ktx.Firebase;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 import mal.art.shopin.database.FirebaseDatabaseHelper;
 import mal.art.shopin.database.FirebaseQueryLiveData;
+import mal.art.shopin.database.FirestoreHelper;
 import mal.art.shopin.database.ProductRoomDatabase;
 import mal.art.shopin.database.ProductsDAO;
 import mal.art.shopin.model.Product;
@@ -59,6 +64,7 @@ public class ProductRepository {
   }
 
   private static String getDatetime() {
+
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
     Calendar calendar = Calendar.getInstance();
 

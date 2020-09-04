@@ -19,7 +19,7 @@
       android:layout_marginTop="60dp"
       android:layout_marginEnd="10dp"
       android:layout_marginBottom="20dp"
-      tools:listitem="@layout/products_shopping_list_recyclerview_item"/>
+      tools:listitem="@layout/shopping_list_product_recyclerview_item"/>
   </LinearLayout>
 
   <LinearLayout

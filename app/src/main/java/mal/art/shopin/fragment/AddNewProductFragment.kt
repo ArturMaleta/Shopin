@@ -45,7 +45,7 @@ class AddNewProductFragment : DialogFragment() {
   }
 
   private fun saveProduct(productName: EditText, productCategory: Spinner) {
-    val product = Product(productName.text.toString(), productCategory.selectedItem.toString())
+    val product = Product(productName.text.toString(), productCategory.selectedItem as ProductCategoryEnum)
     productViewModel!!.insert(product)
     Log.d("PRODUKT ZAPISANY", product.productName + " " + product.productCategory)
     this.dismiss()

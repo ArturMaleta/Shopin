@@ -51,7 +51,7 @@ class ProductsListFragment : Fragment(R.layout.products_list_fragment_layout), P
     val bundle = Bundle()
     bundle.putString("shoppingListName", shoppingListName)
     bundle.putString("productName", productsList[position].productName)
-    bundle.putString("productCategory", productsList[position].productCategory)
+    bundle.putString("productCategory", productsList[position].productCategory.toString())
 
     val openAddProductToShoppingListFragment = AddProductToShoppingListFragment()
     openAddProductToShoppingListFragment.arguments = bundle

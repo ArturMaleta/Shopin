@@ -7,7 +7,9 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+import com.google.firebase.database.Exclude;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 @Entity(tableName = "products")
 public class Product implements Parcelable {
@@ -19,7 +21,7 @@ public class Product implements Parcelable {
   private String productName;
 
   @ColumnInfo(name = "product_category")
-  private String productCategory;
+  private ProductCategoryEnum productCategory;
 
   @Ignore
   @ColumnInfo(name = "quantity") private int quantity;
@@ -34,19 +36,19 @@ public class Product implements Parcelable {
 
   }
 
-  public Product(String productName, String productCategory) {
+  public Product(String productName, ProductCategoryEnum productCategory) {
     this.productName = productName;
     this.productCategory = productCategory;
   }
 
-  public Product(String productName, String productCategory, int quantity) {
+  public Product(String productName, ProductCategoryEnum productCategory, int quantity) {
     this.productName = productName;
     this.productCategory = productCategory;
     this.quantity = quantity;
   }
 
   // to Firebase
-  public Product(String productName, String productCategory, int quantity, String productUnit, String shoppingStatus) {
+  public Product(String productName, ProductCategoryEnum productCategory, int quantity, String productUnit, String shoppingStatus) {
     this.productName = productName;
     this.productCategory = productCategory;
     this.quantity = quantity;
@@ -56,7 +58,24 @@ public class Product implements Parcelable {
 
   public Product(Parcel parcel) {
     this.productName = parcel.readString();
-    this.productCategory = parcel.readString();
+    String productCategoryToParcel = productCategory.toString();
+    productCategoryToParcel = parcel.readString();
+  }
+
+  // To Firebase Database
+  public Product(
+    @Nullable String productName,
+    @NotNull String productCategory,
+    int productQuantity,
+    @NotNull String productUnit,
+    @NotNull String shoppingStatus
+  ) {
+      this.productName = productName;
+      String productCategoryToString = this.productCategory.toString();
+      productCategoryToString = productCategory;
+      this.quantity = productQuantity;
+      this.productUnit = productUnit;
+      this.shoppingStatus = shoppingStatus;
   }
 
   @NotNull
@@ -68,11 +87,20 @@ public class Product implements Parcelable {
     this.productName = productName;
   }
 
-  public String getProductCategory() {
+  @Exclude
+  public ProductCategoryEnum getProductCategoryVal() {
     return productCategory;
   }
 
-  public void setProductCategory(String productCategory) {
+  public String getProductCategory() {
+    if (productCategory == null) {
+      return null;
+    } else {
+      return productCategory.toString();
+    }
+  }
+
+  public void setProductCategory(ProductCategoryEnum productCategory) {
     this.productCategory = productCategory;
   }
 
@@ -108,7 +136,7 @@ public class Product implements Parcelable {
   @Override
   public void writeToParcel(Parcel dest, int flags) {
     dest.writeString(productName);
-    dest.writeString(productCategory);
+    dest.writeString(productCategory.toString());
   }
 
   public static final Parcelable.Creator<Product> CREATOR = new Parcelable.Creator<Product>() {
