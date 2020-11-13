@@ -13,13 +13,13 @@ import com.google.firebase.database.DataSnapshot
 import mal.art.shopin.R
 import mal.art.shopin.adapter.ShoppingListViewAdapter
 import mal.art.shopin.fragment.helper.changeFragment
-import mal.art.shopin.model.Product
+import mal.art.shopin.model.ProductModel
 import mal.art.shopin.viewModel.ShoppingListViewModel
 import java.util.ArrayList
 
 class ShoppingListFragment : Fragment(R.layout.fragment_shopping_list), ShoppingListViewAdapter.OnProductClickListener {
 
-  private var listOfProducts: MutableList<Product> = ArrayList()
+  private var listOfProductModels: MutableList<ProductModel> = ArrayList()
   private lateinit var listName: String
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,9 +42,9 @@ class ShoppingListFragment : Fragment(R.layout.fragment_shopping_list), Shopping
     shoppingListViewModel.getShoppingList(listName)!!.observe(this, Observer { shoppingList: DataSnapshot ->
       adapter.getProducts(shoppingList)
       for (date in shoppingList.children) {
-        date.getValue(Product::class.java)?.let { listOfProducts.add(it) }
+        date.getValue(ProductModel::class.java)?.let { listOfProductModels.add(it) }
       }
-    })
+    } as Observer<in DataSnapshot?>)
   }
 
   private fun initializeFAB() {
@@ -70,7 +70,7 @@ class ShoppingListFragment : Fragment(R.layout.fragment_shopping_list), Shopping
   }
 
   override fun onProductClick(position: Int) {
-    Toast.makeText(activity, listOfProducts[position].productName, Toast.LENGTH_SHORT).show()
+    Toast.makeText(activity, listOfProductModels[position].productName, Toast.LENGTH_SHORT).show()
   }
 
   companion object {

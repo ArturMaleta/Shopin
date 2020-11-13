@@ -8,42 +8,63 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainScreen">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bckgrnd1" >
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@drawable/bckgrnd1">
 
-        <Button
-            android:id="@+id/addProduct_btn"
-            style="@style/AppTheme"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="40dp"
-            android:background="@drawable/btn"
-            android:text="@string/add_product"
-            app:layout_constraintBottom_toTopOf="@+id/goToListOfShoppingList_btn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+    <Button
+        android:id="@+id/firebase_btn"
+        style="@style/AppTheme"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/btn"
+        android:text="Lista zakupów"
+        android:layout_marginBottom="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/goToListOfShoppingList_btn"
-            style="@style/AppTheme"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="60dp"
-            android:background="@drawable/btn"
-            android:text="@string/my_list"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+    <Button
+        android:id="@+id/main_screen_list_of_shopping_lists_btn"
+        style="@style/AppTheme"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/btn"
+        android:text="Listy zakupów"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/firebase_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/addProduct_btn"
+        style="@style/AppTheme"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/btn"
+        android:text="@string/add_product"
+        android:layout_marginBottom="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/main_screen_list_of_shopping_lists_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+  <LinearLayout
+      android:id="@+id/list_of_shopping_list_fragment_container"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="horizontal" />
 
   <LinearLayout
       android:id="@+id/add_new_product_fragment_container"
@@ -52,7 +73,7 @@
       android:orientation="horizontal" />
 
   <LinearLayout
-      android:id="@+id/list_of_shopping_list_fragment_container"
+      android:id="@+id/firebase_test_fragment_container"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:orientation="horizontal" />

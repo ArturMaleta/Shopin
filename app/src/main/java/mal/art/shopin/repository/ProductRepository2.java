@@ -1,52 +1,47 @@
 package mal.art.shopin.repository;
 
 import android.app.Application;
-import android.widget.Toast;
 import androidx.lifecycle.LiveData;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.core.FirestoreClient;
-import com.google.firebase.ktx.Firebase;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 import mal.art.shopin.database.FirebaseDatabaseHelper;
 import mal.art.shopin.database.FirebaseQueryLiveData;
-import mal.art.shopin.database.FirestoreHelper;
 import mal.art.shopin.database.ProductRoomDatabase;
 import mal.art.shopin.database.ProductsDAO;
-import mal.art.shopin.model.Product;
+import mal.art.shopin.model.ProductModel;
 
-public class ProductRepository {
+public class ProductRepository2 {
 
   private static final DatabaseReference fireDatabase = FirebaseDatabaseHelper.INSTANCE.getReference();
 
   private ProductsDAO productDao;
 
-  private LiveData<List<Product>> allProducts;
+  private LiveData<List<ProductModel>> allProducts;
 
   private final FirebaseQueryLiveData shoppingLists = new FirebaseQueryLiveData(fireDatabase);
 
   private FirebaseQueryLiveData shoppingList = null;
 
-  public ProductRepository(Application application) {
+  public ProductRepository2(Application application) {
     ProductRoomDatabase db = ProductRoomDatabase.getInstance(application);
     productDao = db.productsDAO();
     allProducts = productDao.getAllProducts();
   }
 
-  public LiveData<List<Product>> getAllProducts() {
+  public LiveData<List<ProductModel>> getAllProducts() {
     return allProducts;
   }
 
-  public void insert(final Product product) {
+  public void insert(final ProductModel productModel) {
     ProductRoomDatabase.dbExecutor.execute(() ->
-      productDao.insertProduct(product));
+      productDao.insertProduct(productModel));
   }
 
-  public static void insertToShoppingList(Product product) {
-    fireDatabase.child(getDatetime()).child(product.getProductName()).setValue(product);
+  public static void insertToShoppingList(ProductModel productModel) {
+    fireDatabase.child(getDatetime()).child(productModel.getProductName()).setValue(productModel);
   }
 
   public static void changeShoppingListName(String oldName, String newName) {
@@ -75,7 +70,7 @@ public class ProductRepository {
     fireDatabase.child(name).setValue(true);
   }
 
-  public void addProductToParticularShoppingList(String shoppingListName, Product product) {
-    fireDatabase.child(shoppingListName).child(product.getProductName()).setValue(product);
+  public void addProductToParticularShoppingList(String shoppingListName, ProductModel productModel) {
+    fireDatabase.child(shoppingListName).child(productModel.getProductName()).setValue(productModel);
   }
 }

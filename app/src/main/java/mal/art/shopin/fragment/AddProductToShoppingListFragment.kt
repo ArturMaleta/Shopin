@@ -10,14 +10,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.RecyclerView
 import mal.art.shopin.R
-import mal.art.shopin.adapter.ProductListAdapter
-import mal.art.shopin.adapter.ShoppingListViewAdapter
-import mal.art.shopin.model.Product
+import mal.art.shopin.model.ProductModel
 import mal.art.shopin.model.ProductCategoryEnum
 import mal.art.shopin.model.ProductUnitEnum
 import mal.art.shopin.viewModel.ShoppingListViewModel
@@ -55,7 +51,8 @@ class AddProductToShoppingListFragment : DialogFragment() {
     val saveShoppingListBtn: Button = view.findViewById(R.id.add_product_to_shopping_list_btn)
     saveShoppingListBtn.setOnClickListener {
 
-      val product = Product(productName, productCategory as ProductCategoryEnum, productQuantityEt.text.toString().toInt(), productUnitSp.selectedItem.toString(), resources.getString(R.string.default_shopping_status))
+      val product = ProductModel(productName, productCategory as ProductCategoryEnum, productQuantityEt.text.toString().toInt(),
+                                                                         productUnitSp.selectedItem.toString(), resources.getString(R.string.default_shopping_status))
 
       shoppingListViewModel!!.addProductToShoppingList(shoppingListName, product)
       this.dismiss()

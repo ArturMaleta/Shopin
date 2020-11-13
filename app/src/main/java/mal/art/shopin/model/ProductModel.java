@@ -7,12 +7,10 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-import com.google.firebase.database.Exclude;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 @Entity(tableName = "products")
-public class Product implements Parcelable {
+public class ProductModel implements Parcelable {
   // jest wtyczka do Parcable, żeby automatycznie generował kod
 
   @PrimaryKey
@@ -32,23 +30,22 @@ public class Product implements Parcelable {
   private String shoppingStatus;
 
   // for Firebase
-  public Product() {
+  public ProductModel() {
 
   }
 
-  public Product(String productName, ProductCategoryEnum productCategory) {
+  public ProductModel(String productName, ProductCategoryEnum productCategory) {
     this.productName = productName;
     this.productCategory = productCategory;
   }
 
-  public Product(String productName, ProductCategoryEnum productCategory, int quantity) {
+  public ProductModel(String productName, ProductCategoryEnum productCategory, int quantity) {
     this.productName = productName;
     this.productCategory = productCategory;
     this.quantity = quantity;
   }
 
-  // to Firebase
-  public Product(String productName, ProductCategoryEnum productCategory, int quantity, String productUnit, String shoppingStatus) {
+  public ProductModel(String productName, ProductCategoryEnum productCategory, int quantity, String productUnit, String shoppingStatus) {
     this.productName = productName;
     this.productCategory = productCategory;
     this.quantity = quantity;
@@ -56,27 +53,26 @@ public class Product implements Parcelable {
     this.shoppingStatus = shoppingStatus;
   }
 
-  public Product(Parcel parcel) {
+  public ProductModel(Parcel parcel) {
     this.productName = parcel.readString();
     String productCategoryToParcel = productCategory.toString();
     productCategoryToParcel = parcel.readString();
   }
 
   // To Firebase Database
-  public Product(
-    @Nullable String productName,
-    @NotNull String productCategory,
-    int productQuantity,
-    @NotNull String productUnit,
-    @NotNull String shoppingStatus
-  ) {
-      this.productName = productName;
-      String productCategoryToString = this.productCategory.toString();
-      productCategoryToString = productCategory;
-      this.quantity = productQuantity;
-      this.productUnit = productUnit;
-      this.shoppingStatus = shoppingStatus;
-  }
+//  public Product(
+//    @Nullable String productName,
+//    @NotNull ProductCategoryEnum productCategory,
+//    int productQuantity,
+//    @NotNull String productUnit,
+//    @NotNull String shoppingStatus
+//  ) {
+//      this.productName = productName;
+//      this.productCategory = productCategory;
+//      this.quantity = productQuantity;
+//      this.productUnit = productUnit;
+//      this.shoppingStatus = shoppingStatus;
+//  }
 
   @NotNull
   public String getProductName() {
@@ -86,17 +82,17 @@ public class Product implements Parcelable {
   public void setProductName(@NotNull String productName) {
     this.productName = productName;
   }
+//
+//  @Exclude
+//  public ProductCategoryEnum getProductCategoryVal() {
+//    return productCategory;
+//  }
 
-  @Exclude
-  public ProductCategoryEnum getProductCategoryVal() {
-    return productCategory;
-  }
-
-  public String getProductCategory() {
+  public ProductCategoryEnum getProductCategory() {
     if (productCategory == null) {
       return null;
     } else {
-      return productCategory.toString();
+      return productCategory;
     }
   }
 
@@ -139,15 +135,15 @@ public class Product implements Parcelable {
     dest.writeString(productCategory.toString());
   }
 
-  public static final Parcelable.Creator<Product> CREATOR = new Parcelable.Creator<Product>() {
+  public static final Parcelable.Creator<ProductModel> CREATOR = new Parcelable.Creator<ProductModel>() {
 
     @Override
-    public Product createFromParcel(Parcel parcel) {
-      return new Product(parcel);
+    public ProductModel createFromParcel(Parcel parcel) {
+      return new ProductModel(parcel);
     }
 
-    public Product[] newArray(int size) {
-      return new Product[0];
+    public ProductModel[] newArray(int size) {
+      return new ProductModel[0];
     }
   };
 

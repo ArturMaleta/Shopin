@@ -13,7 +13,7 @@ import android.widget.Spinner
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProviders
 import mal.art.shopin.R
-import mal.art.shopin.model.Product
+import mal.art.shopin.model.ProductModel
 import mal.art.shopin.model.ProductCategoryEnum
 import mal.art.shopin.viewModel.ProductViewModel
 
@@ -45,8 +45,10 @@ class AddNewProductFragment : DialogFragment() {
   }
 
   private fun saveProduct(productName: EditText, productCategory: Spinner) {
-    val product = Product(productName.text.toString(), productCategory.selectedItem as ProductCategoryEnum)
+    val product = ProductModel(productName.text.toString(), productCategory.selectedItem as ProductCategoryEnum)
     productViewModel!!.insert(product)
+    productViewModel!!.testFirestore(product)
+    productViewModel!!.testFirestore2()
     Log.d("PRODUKT ZAPISANY", product.productName + " " + product.productCategory)
     this.dismiss()
   }

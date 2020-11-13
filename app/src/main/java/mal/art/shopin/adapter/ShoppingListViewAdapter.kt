@@ -9,8 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.google.firebase.database.DataSnapshot
 import mal.art.shopin.R
-import mal.art.shopin.adapter.ShoppingListViewAdapter.ShoppingListViewHolder
-import mal.art.shopin.model.Product
+import mal.art.shopin.model.ProductModel
 import mal.art.shopin.model.ProductCategoryEnum
 
 class ShoppingListViewAdapter(
@@ -40,7 +39,7 @@ class ShoppingListViewAdapter(
   }
 
   private val inflater: LayoutInflater = LayoutInflater.from(context)
-  private val shoppingList: MutableList<Product?>? = ArrayList()
+  private val shoppingList: MutableList<ProductModel?>? = ArrayList()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
@@ -70,12 +69,12 @@ class ShoppingListViewAdapter(
   fun getProducts(shoppingList: DataSnapshot) {
     for (temp in shoppingList.children) {
       val productName = temp.key
-      val productCategory = temp.child("productCategory").value.toString()
+      val productCategory = temp.child("productCategory").value as ProductCategoryEnum
       val productUnit = temp.child("productUnit").value.toString()
       val productQuantity = temp.child("quantity").value.toString().toInt()
       val shoppingStatus = temp.child("shoppingStatus").value.toString()
 
-      val product = Product(productName, productCategory, productQuantity, productUnit, shoppingStatus)
+      val product = ProductModel(productName, productCategory, productQuantity, productUnit, shoppingStatus)
 
       this.shoppingList!!.add(product)
     }

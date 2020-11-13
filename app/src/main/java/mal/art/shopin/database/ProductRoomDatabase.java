@@ -12,11 +12,11 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import mal.art.shopin.model.Product;
+import mal.art.shopin.model.ProductModel;
 import mal.art.shopin.model.ProductCategoryConverter;
 import mal.art.shopin.model.ProductCategoryEnum;
 
-@Database(entities = Product.class, exportSchema = false, version = 2)
+@Database(entities = ProductModel.class, exportSchema = false, version = 2)
 @TypeConverters(ProductCategoryConverter.class)
 public abstract class ProductRoomDatabase extends RoomDatabase {
 
@@ -55,7 +55,7 @@ public abstract class ProductRoomDatabase extends RoomDatabase {
     public void onOpen(@NonNull SupportSQLiteDatabase db) {
       super.onOpen(db);
       ProductsDAO dao = INSTANCE.productsDAO();
-      LiveData<List<Product>> productList = dao.getAllProducts();
+      LiveData<List<ProductModel>> productList = dao.getAllProducts();
     }
   };
 
@@ -64,12 +64,12 @@ public abstract class ProductRoomDatabase extends RoomDatabase {
       ProductsDAO dao = INSTANCE.productsDAO();
 
       // dopóki nie ogarnę czemu mi się baza nie prepopuluje, muszę pracować na tym
-      Product agrest = new Product("Agrest", ProductCategoryEnum.OWOCE);
-      Product arbuz = new Product("Arbuz", ProductCategoryEnum.OWOCE);
-      Product ananas = new Product("Ananas", ProductCategoryEnum.OWOCE);
-      Product baklazan = new Product("Bakłażan", ProductCategoryEnum.WARZYWA);
-      Product bob = new Product("Bób", ProductCategoryEnum.WARZYWA);
-      Product brokul = new Product("Brokuł", ProductCategoryEnum.WARZYWA);
+      ProductModel agrest = new ProductModel("Agrest", ProductCategoryEnum.OWOCE);
+      ProductModel arbuz = new ProductModel("Arbuz", ProductCategoryEnum.OWOCE);
+      ProductModel ananas = new ProductModel("Ananas", ProductCategoryEnum.OWOCE);
+      ProductModel baklazan = new ProductModel("Bakłażan", ProductCategoryEnum.WARZYWA);
+      ProductModel bob = new ProductModel("Bób", ProductCategoryEnum.WARZYWA);
+      ProductModel brokul = new ProductModel("Brokuł", ProductCategoryEnum.WARZYWA);
       dao.insertProduct(agrest);
       dao.insertProduct(arbuz);
       dao.insertProduct(ananas);
