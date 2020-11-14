@@ -15,14 +15,14 @@ class ShoppingListAdapter(
 ) : FirestoreRecyclerAdapter<ProductModel, ShoppingListAdapter.ShoppingListViewHolder>(options) {
 
   inner class ShoppingListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    var productNameTv: TextView = view.findViewById(R.id.firebase_test_product_name_txtView)
-    var quantityTv: TextView = view.findViewById(R.id.firebase_test_quantity_txtView)
-    var unitTv: TextView = view.findViewById(R.id.firebase_test_unit_txtView)
+    var productNameTv: TextView = view.findViewById(R.id.product_name_txtView)
+    var quantityTv: TextView = view.findViewById(R.id.quantity_txtView)
+    var unitTv: TextView = view.findViewById(R.id.unit_txtView)
   }
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingListViewHolder {
     return ShoppingListViewHolder(LayoutInflater.from(parent.context)
-      .inflate(R.layout.firebase_recyclerview_item, parent, false))
+      .inflate(R.layout.shopping_list_recyclerview_item, parent, false))
   }
 
   override fun onBindViewHolder(holder: ShoppingListViewHolder, position: Int, productModel: ProductModel) {

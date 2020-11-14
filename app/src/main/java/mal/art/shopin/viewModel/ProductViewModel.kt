@@ -28,8 +28,8 @@ class ProductViewModel(application: Application) : AndroidViewModel(application)
     repository.testFirestore2()
   }
 
-  fun getShoppingListFirestoreReference(): CollectionReference {
-    return repository.getShoppingListFirestoreReference()
+  fun getShoppingListFirestoreReference(shoppingListName: String): CollectionReference {
+    return repository.getShoppingListFirestoreReference(shoppingListName)
   }
 
 }

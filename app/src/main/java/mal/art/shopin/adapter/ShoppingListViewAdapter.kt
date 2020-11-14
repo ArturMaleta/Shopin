@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.google.firebase.database.DataSnapshot
 import mal.art.shopin.R
 import mal.art.shopin.model.ProductModel
-import mal.art.shopin.model.ProductCategoryEnum
 
 class ShoppingListViewAdapter(
   context: Context?,
@@ -69,7 +68,7 @@ class ShoppingListViewAdapter(
   fun getProducts(shoppingList: DataSnapshot) {
     for (temp in shoppingList.children) {
       val productName = temp.key
-      val productCategory = temp.child("productCategory").value as ProductCategoryEnum
+      val productCategory = temp.child("productCategory").value.toString()
       val productUnit = temp.child("productUnit").value.toString()
       val productQuantity = temp.child("quantity").value.toString().toInt()
       val shoppingStatus = temp.child("shoppingStatus").value.toString()

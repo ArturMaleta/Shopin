@@ -37,7 +37,7 @@ class ProductsListFragment : Fragment(R.layout.products_list_fragment_layout), P
     recyclerView.layoutManager = LinearLayoutManager(activity)
 
     productViewModel = ViewModelProviders.of(this).get(ProductViewModel::class.java)
-    productViewModel.allProducts?.observe(this, Observer { productModels: List<ProductModel>? ->
+    productViewModel.allProducts?.observe(viewLifecycleOwner, Observer { productModels: List<ProductModel>? ->
       adapter.setProductModels(productModels)
       productsList.addAll(productModels!!)
     } as Observer<in List<ProductModel?>?>)

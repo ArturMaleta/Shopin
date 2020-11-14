@@ -2,78 +2,56 @@ package mal.art.shopin.fragment
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.firebase.database.DataSnapshot
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.firestore.Query
 import mal.art.shopin.R
-import mal.art.shopin.adapter.ShoppingListViewAdapter
-import mal.art.shopin.fragment.helper.changeFragment
+import mal.art.shopin.adapter.ShoppingListAdapter
+import mal.art.shopin.extensions.lazyActivityViewModels
 import mal.art.shopin.model.ProductModel
-import mal.art.shopin.viewModel.ShoppingListViewModel
-import java.util.ArrayList
+import mal.art.shopin.viewModel.ProductViewModel
 
-class ShoppingListFragment : Fragment(R.layout.fragment_shopping_list), ShoppingListViewAdapter.OnProductClickListener {
+class ShoppingListFragment(private val shoppingListName: String): Fragment(R.layout.shopping_list_fragment_layout) {
 
-  private var listOfProductModels: MutableList<ProductModel> = ArrayList()
-  private lateinit var listName: String
+  private val productViewModel: ProductViewModel by lazyActivityViewModels {
+    ProductViewModel(activity!!.application)
+  }
+
+  private lateinit var _adapter: ShoppingListAdapter
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    listName = arguments!!.getString("listName")!!
-    initializeViewModel()
-    initializeFAB()
-
     super.onViewCreated(view, savedInstanceState)
+    initializeRecyclerViewAndViewModel()
   }
 
-  private fun initializeViewModel() {
-    val recyclerView = view!!.findViewById<RecyclerView>(R.id.shopping_list_recycler_view)
+  private fun initializeRecyclerViewAndViewModel() {
+    val query = productViewModel.getShoppingListFirestoreReference(shoppingListName).orderBy("productName", Query.Direction.DESCENDING)
 
-    val adapter = ShoppingListViewAdapter(activity, this)
-    recyclerView.adapter = adapter
-    recyclerView.layoutManager = LinearLayoutManager(activity)
+    val options = FirestoreRecyclerOptions.Builder<ProductModel>()
+      .setQuery(query, ProductModel::class.java)
+      .build()
 
-    val shoppingListViewModel = ViewModelProviders.of(this).get(ShoppingListViewModel::class.java)
-
-    shoppingListViewModel.getShoppingList(listName)!!.observe(this, Observer { shoppingList: DataSnapshot ->
-      adapter.getProducts(shoppingList)
-      for (date in shoppingList.children) {
-        date.getValue(ProductModel::class.java)?.let { listOfProductModels.add(it) }
-      }
-    } as Observer<in DataSnapshot?>)
-  }
-
-  private fun initializeFAB() {
-    val fab: View = activity?.findViewById(R.id.shopping_list_fab) ?: FloatingActionButton(context)
-    fab.setOnClickListener {
-      addProductToShoppingList()
+    _adapter = ShoppingListAdapter(options)
+    val recyclerView = view!!.findViewById<RecyclerView>(R.id.shopping_list_fragment_recycler_view)
+    recyclerView.let {
+      it.layoutManager = LinearLayoutManager(activity)
+      it.adapter = _adapter
     }
   }
 
-  private fun addProductToShoppingList() {
-    val bundle = Bundle()
-    bundle.putString("shoppingListName", listName)
-
-    val showProducts = ProductsListFragment()
-    showProducts.arguments = bundle
-
-    showProducts.changeFragment(
-      activity!!.supportFragmentManager,
-      R.id.shopping_list_fragment_container,
-      showProducts,
-      ProductsListFragment.TAG
-    )
+  override fun onStart() {
+    super.onStart()
+    _adapter.startListening()
   }
 
-  override fun onProductClick(position: Int) {
-    Toast.makeText(activity, listOfProductModels[position].productName, Toast.LENGTH_SHORT).show()
+  override fun onStop() {
+    super.onStop()
+    _adapter.stopListening()
   }
 
   companion object {
-    const val TAG = "SHOPPING_LIST_TAG"
+    const val TAG = "SHOPPING_LIST_FRAGMENT_TAG"
   }
 }

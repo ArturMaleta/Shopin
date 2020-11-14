@@ -3,30 +3,28 @@ package mal.art.shopin.repository
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
-import com.google.firebase.database.DataSnapshot
 import com.google.firebase.firestore.CollectionReference
-import mal.art.shopin.database.FirebaseDatabaseHelper.getReference
-import mal.art.shopin.database.FirebaseQueryLiveData
 import mal.art.shopin.database.FirestoreHelper.Companion.dbReference
 import mal.art.shopin.database.ProductRoomDatabase
 import mal.art.shopin.database.ProductsDAO
 import mal.art.shopin.model.ProductModel
-import mal.art.shopin.model.ProductCategoryEnum
-import java.text.SimpleDateFormat
-import java.util.Calendar
 
 class ProductRepository(application: Application?) {
   private val productDao: ProductsDAO
   val allProducts: LiveData<List<ProductModel?>?>?
-  private val shoppingLists = FirebaseQueryLiveData(fireDatabase)
-  private var shoppingList: FirebaseQueryLiveData? = null
+
+  init {
+    val db = ProductRoomDatabase.getInstance(application)
+    productDao = db.productsDAO()
+    allProducts = productDao.allProducts
+  }
 
   fun insert(productModel: ProductModel?) {
     ProductRoomDatabase.dbExecutor.execute { productDao.insertProduct(productModel) }
   }
 
   fun testFirestore(productModel: ProductModel) {
-    val prod = ProductModel("Szyneczka", ProductCategoryEnum.NABIAŁ, 1)
+    val prod = ProductModel("Szyneczka", "NABIAŁ", 1)
 
     firestore.collection("users").document("Zakupy").collection("ListaA").document()
       .set(productModel)
@@ -45,57 +43,22 @@ class ProductRepository(application: Application?) {
       }
   }
 
-  fun getShoppingListFirestoreReference(): CollectionReference {
-    return firestore.collection("users").document("ListaA").collection("shoppingList")
+  fun getShoppingListFirestoreReference(shoppingListName: String): CollectionReference {
+    return firestore.collection("users").document(shoppingListName).collection("zakupy")
   }
 
   fun getListOfShoppingListsReference(): CollectionReference {
     return firestore.collection("users")
   }
 
-  val listOfShoppingListsLiveData: LiveData<DataSnapshot?>
-    get() = shoppingLists
-
-  fun getShoppingListLiveData(shoppingListName: String?): LiveData<DataSnapshot?> {
-    shoppingList = FirebaseQueryLiveData(fireDatabase.child(shoppingListName!!))
-    return shoppingList as FirebaseQueryLiveData
-  }
-
-  fun addShoppingListName(name: String?) {
-    fireDatabase.child(name!!).setValue(true)
-  }
-
-  fun addProductToParticularShoppingList(shoppingListName: String?, productModel: ProductModel) {
-    fireDatabase.child(shoppingListName!!).child(productModel.productName).setValue(productModel)
+  fun addShoppingList(name: String?) {
+    firestore.collection("users").document()
+      .set(hashMapOf(
+        "shoppingListName" to name))
   }
 
   companion object {
-    private val fireDatabase = getReference()
-    fun insertToShoppingList(productModel: ProductModel) {
-      fireDatabase.child(datetime).child(productModel.productName).setValue(productModel)
-    }
 
-    fun changeShoppingListName(oldName: String?, newName: String?) {
-      val key = fireDatabase.child(oldName!!).key
-      fireDatabase.child(oldName).setValue(newName)
-    }
-
-    private val datetime: String
-      private get() {
-        val formatter = SimpleDateFormat("yyyy-MM-dd")
-        val calendar = Calendar.getInstance()
-        return formatter.format(calendar.time)
-      }
-
-    //
     val firestore = dbReference
-
-    //
-  }
-
-  init {
-    val db = ProductRoomDatabase.getInstance(application)
-    productDao = db.productsDAO()
-    allProducts = productDao.allProducts
   }
 }

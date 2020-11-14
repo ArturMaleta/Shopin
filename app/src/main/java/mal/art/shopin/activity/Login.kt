@@ -2,14 +2,11 @@ package mal.art.shopin.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import mal.art.shopin.R
-import mal.art.shopin.fragment.ForgotPasswordFragment
 import mal.art.shopin.fragment.LogInSignInFragment
-import mal.art.shopin.fragment.RegisterFragment
 
 class Login : AppCompatActivity(R.layout.activity_login) {
 

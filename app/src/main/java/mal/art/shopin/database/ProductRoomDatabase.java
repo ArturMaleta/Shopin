@@ -7,17 +7,13 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import mal.art.shopin.model.ProductModel;
-import mal.art.shopin.model.ProductCategoryConverter;
-import mal.art.shopin.model.ProductCategoryEnum;
 
 @Database(entities = ProductModel.class, exportSchema = false, version = 2)
-@TypeConverters(ProductCategoryConverter.class)
 public abstract class ProductRoomDatabase extends RoomDatabase {
 
   private static final String DB_NAME = "shopinDb";
@@ -64,12 +60,12 @@ public abstract class ProductRoomDatabase extends RoomDatabase {
       ProductsDAO dao = INSTANCE.productsDAO();
 
       // dopóki nie ogarnę czemu mi się baza nie prepopuluje, muszę pracować na tym
-      ProductModel agrest = new ProductModel("Agrest", ProductCategoryEnum.OWOCE);
-      ProductModel arbuz = new ProductModel("Arbuz", ProductCategoryEnum.OWOCE);
-      ProductModel ananas = new ProductModel("Ananas", ProductCategoryEnum.OWOCE);
-      ProductModel baklazan = new ProductModel("Bakłażan", ProductCategoryEnum.WARZYWA);
-      ProductModel bob = new ProductModel("Bób", ProductCategoryEnum.WARZYWA);
-      ProductModel brokul = new ProductModel("Brokuł", ProductCategoryEnum.WARZYWA);
+      ProductModel agrest = new ProductModel("Agrest", "OWOCE");
+      ProductModel arbuz = new ProductModel("Arbuz", "OWOCE");
+      ProductModel ananas = new ProductModel("Ananas", "OWOCE");
+      ProductModel baklazan = new ProductModel("Bakłażan", "OWOCE");
+      ProductModel bob = new ProductModel("Bób", "OWOCE");
+      ProductModel brokul = new ProductModel("Brokuł", "OWOCE");
       dao.insertProduct(agrest);
       dao.insertProduct(arbuz);
       dao.insertProduct(ananas);

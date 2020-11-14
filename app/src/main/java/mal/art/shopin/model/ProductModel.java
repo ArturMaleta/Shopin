@@ -19,7 +19,7 @@ public class ProductModel implements Parcelable {
   private String productName;
 
   @ColumnInfo(name = "product_category")
-  private ProductCategoryEnum productCategory;
+  private String productCategory;
 
   @Ignore
   @ColumnInfo(name = "quantity") private int quantity;
@@ -29,23 +29,22 @@ public class ProductModel implements Parcelable {
   @Ignore
   private String shoppingStatus;
 
-  // for Firebase
   public ProductModel() {
 
   }
 
-  public ProductModel(String productName, ProductCategoryEnum productCategory) {
+  public ProductModel(String productName, String productCategory) {
     this.productName = productName;
     this.productCategory = productCategory;
   }
 
-  public ProductModel(String productName, ProductCategoryEnum productCategory, int quantity) {
+  public ProductModel(String productName, String productCategory, int quantity) {
     this.productName = productName;
     this.productCategory = productCategory;
     this.quantity = quantity;
   }
 
-  public ProductModel(String productName, ProductCategoryEnum productCategory, int quantity, String productUnit, String shoppingStatus) {
+  public ProductModel(String productName, String productCategory, int quantity, String productUnit, String shoppingStatus) {
     this.productName = productName;
     this.productCategory = productCategory;
     this.quantity = quantity;
@@ -59,21 +58,6 @@ public class ProductModel implements Parcelable {
     productCategoryToParcel = parcel.readString();
   }
 
-  // To Firebase Database
-//  public Product(
-//    @Nullable String productName,
-//    @NotNull ProductCategoryEnum productCategory,
-//    int productQuantity,
-//    @NotNull String productUnit,
-//    @NotNull String shoppingStatus
-//  ) {
-//      this.productName = productName;
-//      this.productCategory = productCategory;
-//      this.quantity = productQuantity;
-//      this.productUnit = productUnit;
-//      this.shoppingStatus = shoppingStatus;
-//  }
-
   @NotNull
   public String getProductName() {
     return productName;
@@ -82,13 +66,8 @@ public class ProductModel implements Parcelable {
   public void setProductName(@NotNull String productName) {
     this.productName = productName;
   }
-//
-//  @Exclude
-//  public ProductCategoryEnum getProductCategoryVal() {
-//    return productCategory;
-//  }
 
-  public ProductCategoryEnum getProductCategory() {
+  public String getProductCategory() {
     if (productCategory == null) {
       return null;
     } else {
@@ -96,7 +75,7 @@ public class ProductModel implements Parcelable {
     }
   }
 
-  public void setProductCategory(ProductCategoryEnum productCategory) {
+  public void setProductCategory(String productCategory) {
     this.productCategory = productCategory;
   }
 
