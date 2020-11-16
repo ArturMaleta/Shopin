@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import mal.art.shopin.R
 import mal.art.shopin.adapter.ProductListAdapter
-import mal.art.shopin.model.Product
+import mal.art.shopin.model.ProductModel
 import mal.art.shopin.viewModel.ProductViewModel
 import java.util.ArrayList
 
 class ProductsListFragment : Fragment(R.layout.products_list_fragment_layout), ProductListAdapter.OnAddProductListener {
 
-  private var productsList: MutableList<Product> = ArrayList()
+  private var productsList: MutableList<ProductModel> = ArrayList()
 
   private lateinit var productViewModel: ProductViewModel
 
@@ -37,10 +37,10 @@ class ProductsListFragment : Fragment(R.layout.products_list_fragment_layout), P
     recyclerView.layoutManager = LinearLayoutManager(activity)
 
     productViewModel = ViewModelProviders.of(this).get(ProductViewModel::class.java)
-    productViewModel.allProducts.observe(this, Observer { products: List<Product>? ->
-      adapter.setProducts(products)
-      productsList.addAll(products!!)
-    })
+    productViewModel.allProducts?.observe(viewLifecycleOwner, Observer { productModels: List<ProductModel>? ->
+      adapter.setProductModels(productModels)
+      productsList.addAll(productModels!!)
+    } as Observer<in List<ProductModel?>?>)
   }
 
   override fun onProductClick(position: Int) {
@@ -51,7 +51,7 @@ class ProductsListFragment : Fragment(R.layout.products_list_fragment_layout), P
     val bundle = Bundle()
     bundle.putString("shoppingListName", shoppingListName)
     bundle.putString("productName", productsList[position].productName)
-    bundle.putString("productCategory", productsList[position].productCategory)
+    bundle.putString("productCategory", productsList[position].productCategory.toString())
 
     val openAddProductToShoppingListFragment = AddProductToShoppingListFragment()
     openAddProductToShoppingListFragment.arguments = bundle

@@ -4,4 +4,5 @@
     <color name="colorPrimaryWithOpacity">#CC8BAE1D</color>
     <color name="colorPrimaryDark">#505e23</color>
     <color name="colorAccent">#5B39C6</color>
+    <color name="colorPrimaryHeader">#E2E2E2</color>
 </resources>

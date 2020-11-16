@@ -40,7 +40,7 @@ class RegisterFragment : Fragment(R.layout.register_fragment_layout) {
   private fun registerUser(auth: FirebaseAuth, newUserEmail: EditText, newUserPassword: EditText, newUserPasswordConfirmation: EditText) {
     val userEmail = newUserEmail.text.toString()
     val userPassword = newUserPassword.text.toString()
-    val userPasswordConfirmation = newUserPasswordConfirmation?.text.toString()
+    val userPasswordConfirmation = newUserPasswordConfirmation.text.toString()
 
     // ZRÓB OBSŁUGĘ BŁĘDÓW ZGODNIE ZE SZTUKĄ
     auth.createUserWithEmailAndPassword(userEmail, userPassword).addOnCompleteListener { task ->

@@ -13,10 +13,10 @@ class MainScreen : AppCompatActivity(R.layout.activity_main_screen) {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
-    val goToListOfShoppingListBtn: Button = findViewById(R.id.goToListOfShoppingList_btn)
     val addNewProduct: Button = findViewById(R.id.addProduct_btn)
+    val listOfShoppingLists: Button = findViewById(R.id.main_screen_list_of_shopping_lists_btn)
 
-    goToListOfShoppingListBtn.setOnClickListener {
+    listOfShoppingLists.setOnClickListener {
       val listOfShoppingListsFragment = ListOfShoppingListFragment()
       listOfShoppingListsFragment.changeFragment(
         supportFragmentManager,

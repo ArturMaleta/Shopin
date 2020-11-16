@@ -5,13 +5,13 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import mal.art.shopin.model.Product
+import mal.art.shopin.model.ProductModel
 
 @Dao
 interface ProductsDAO {
   @Insert(onConflict = OnConflictStrategy.REPLACE)
-  fun insertProduct(product: Product?)
+  fun insertProduct(productModel: ProductModel?)
 
   @get:Query("SELECT * FROM products")
-  val allProducts: LiveData<List<Product?>?>?
+  val allProducts: LiveData<List<ProductModel?>?>?
 }

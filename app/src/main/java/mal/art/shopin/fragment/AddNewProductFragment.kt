@@ -13,8 +13,7 @@ import android.widget.Spinner
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProviders
 import mal.art.shopin.R
-import mal.art.shopin.model.Product
-import mal.art.shopin.model.ProductCategoryEnum
+import mal.art.shopin.model.ProductModel
 import mal.art.shopin.viewModel.ProductViewModel
 
 class AddNewProductFragment : DialogFragment() {
@@ -36,7 +35,7 @@ class AddNewProductFragment : DialogFragment() {
     val productName: EditText = view.findViewById(R.id.product_name_to_save)
 
     val productCategory: Spinner = view.findViewById(R.id.add_new_product_spinner)
-    productCategory.adapter = ArrayAdapter(context!!, android.R.layout.simple_list_item_1, ProductCategoryEnum.values())
+//    productCategory.adapter = ArrayAdapter(context!!, android.R.layout.simple_list_item_1, ProductCategoryEnum.values())
 
     val saveProductBtn = view.findViewById<Button>(R.id.save_button)
     saveProductBtn.setOnClickListener {
@@ -45,8 +44,10 @@ class AddNewProductFragment : DialogFragment() {
   }
 
   private fun saveProduct(productName: EditText, productCategory: Spinner) {
-    val product = Product(productName.text.toString(), productCategory.selectedItem.toString())
+    val product = ProductModel(productName.text.toString(), productCategory.selectedItem.toString())
     productViewModel!!.insert(product)
+    productViewModel!!.testFirestore(product)
+    productViewModel!!.testFirestore2()
     Log.d("PRODUKT ZAPISANY", product.productName + " " + product.productCategory)
     this.dismiss()
   }

@@ -11,9 +11,9 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import mal.art.shopin.model.Product;
+import mal.art.shopin.model.ProductModel;
 
-@Database(entities = Product.class, exportSchema = false, version = 2)
+@Database(entities = ProductModel.class, exportSchema = false, version = 2)
 public abstract class ProductRoomDatabase extends RoomDatabase {
 
   private static final String DB_NAME = "shopinDb";
@@ -51,7 +51,7 @@ public abstract class ProductRoomDatabase extends RoomDatabase {
     public void onOpen(@NonNull SupportSQLiteDatabase db) {
       super.onOpen(db);
       ProductsDAO dao = INSTANCE.productsDAO();
-      LiveData<List<Product>> productList = dao.getAllProducts();
+      LiveData<List<ProductModel>> productList = dao.getAllProducts();
     }
   };
 
@@ -60,12 +60,12 @@ public abstract class ProductRoomDatabase extends RoomDatabase {
       ProductsDAO dao = INSTANCE.productsDAO();
 
       // dopóki nie ogarnę czemu mi się baza nie prepopuluje, muszę pracować na tym
-      Product agrest = new Product("Agrest", owoc);
-      Product arbuz = new Product("Arbuz", owoc);
-      Product ananas = new Product("Ananas", owoc);
-      Product baklazan = new Product("Bakłażan", warzywo);
-      Product bob = new Product("Bób", warzywo);
-      Product brokul = new Product("Brokuł", warzywo);
+      ProductModel agrest = new ProductModel("Agrest", "OWOCE");
+      ProductModel arbuz = new ProductModel("Arbuz", "OWOCE");
+      ProductModel ananas = new ProductModel("Ananas", "OWOCE");
+      ProductModel baklazan = new ProductModel("Bakłażan", "OWOCE");
+      ProductModel bob = new ProductModel("Bób", "OWOCE");
+      ProductModel brokul = new ProductModel("Brokuł", "OWOCE");
       dao.insertProduct(agrest);
       dao.insertProduct(arbuz);
       dao.insertProduct(ananas);

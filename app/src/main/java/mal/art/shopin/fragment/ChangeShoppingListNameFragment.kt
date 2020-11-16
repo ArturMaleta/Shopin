@@ -10,7 +10,6 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.DialogFragment
 import mal.art.shopin.R
-import mal.art.shopin.repository.ProductRepository
 
 class ChangeShoppingListNameFragment : DialogFragment() {
 
@@ -23,10 +22,7 @@ class ChangeShoppingListNameFragment : DialogFragment() {
     editShoppingListNameEditText.requestFocus()
     showKeyboard(view)
 
-    val acceptBtn = view.findViewById<Button>(R.id.change_shopping_list_name_accept_btn)
     val cancelBtn = view.findViewById<Button>(R.id.change_shopping_list_name_cancel_btn)
-
-    acceptBtn.setOnClickListener { ProductRepository.changeShoppingListName(oldListName, editShoppingListNameEditText.text.toString()) }
 
     cancelBtn.setOnClickListener {
       dismiss()

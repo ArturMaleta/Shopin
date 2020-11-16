@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 import mal.art.shopin.R;
-import mal.art.shopin.model.Product;
+import mal.art.shopin.model.ProductModel;
 
 public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.ProductViewHolder> {
 
@@ -34,7 +34,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
   private LayoutInflater inflater;
 
-  private List<Product> products;
+  private List<ProductModel> productModels;
 
   private OnAddProductListener onAddProductListener;
 
@@ -54,23 +54,23 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
   @Override
   public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
-    if (products != null) {
-      Product curProductName = products.get(position);
-      holder.productName_txtView.setText(curProductName.getProductName());
+    if (productModels != null) {
+      ProductModel curProductModelName = productModels.get(position);
+      holder.productName_txtView.setText(curProductModelName.getProductName());
     } else {
       holder.productName_txtView.setText("No product");
     }
   }
 
-  public void setProducts(List<Product> products) {
-    this.products = products;
+  public void setProductModels(List<ProductModel> productModels) {
+    this.productModels = productModels;
     notifyDataSetChanged();
   }
 
   @Override
   public int getItemCount() {
-    if (products != null) {
-      return products.size();
+    if (productModels != null) {
+      return productModels.size();
     } else {
       return 0;
     }
