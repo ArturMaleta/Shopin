@@ -1,5 +1,6 @@
 package mal.art.shopin.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,5 +30,9 @@ class ShoppingListAdapter(
     holder.productNameTv.text = productModel.productName
     holder.quantityTv.text = productModel.quantity.toString()
     holder.unitTv.text = productModel.productUnit
+  }
+
+  fun deleteProduct(position: Int) {
+    snapshots.getSnapshot(position).reference.delete()
   }
 }
